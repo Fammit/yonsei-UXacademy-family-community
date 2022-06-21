@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon  from 'react-native-vector-icons/Ionicons';
 import HomeStack from '../stacks/HomeStack';
 import ChatStack from '../stacks/ChatStack';
 import StorageStack from '../stacks/StorageStack';
@@ -19,19 +20,39 @@ function MainTab() {
                     tabBarActiveTintColor: 'black'}}>
                 <Tab.Screen
                     name="TemplateStack"
-                    component={TemplateStack}/>
+                    component={TemplateStack}
+                    options={{
+                        tabBarIcon: ({color}) => 
+                            <Icon name="document-outline" size={24} color={color}/>
+                    }}/>
                 <Tab.Screen
                     name="ChatStack"
-                    component={ChatStack}/>
+                    component={ChatStack}
+                    options={{
+                        tabBarIcon: ({color}) => 
+                            <Icon name="chatbubble-outline" size={24} color={color}/>
+                    }}/>
                 <Tab.Screen
                     name="HomeStack"
-                    component={HomeStack}/>
+                    component={HomeStack}
+                    options={{
+                        tabBarIcon: ({color}) => 
+                            <Icon name="home-outline" size={24} color={color}/>
+                    }} />
                 <Tab.Screen
                     name="StorageStack"
-                    component={StorageStack}/>
+                    component={StorageStack}
+                    options={{
+                        tabBarIcon: ({color}) => 
+                            <Icon name="md-folder-outline" size={24} color={color}/>
+                    }}/>
                 <Tab.Screen
                     name="MyProfileStack"
-                    component={MyProfileStack}/>
+                    component={MyProfileStack}
+                    options={{
+                        tabBarIcon: ({color}) => 
+                            <Icon name="md-person-outline" size={24} color={color}/>
+                    }}/>
             </Tab.Navigator>
         </View>
     );

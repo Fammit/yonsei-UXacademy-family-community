@@ -7,7 +7,7 @@ function HomeScreen() {
     return (
         <View style={styles.wrapper}>
             {/*백그라운드 이미지*/}
-            <View style={{height:242,backgroundColor:'red'}}>
+            <View style={{height:205,backgroundColor:'red'}}>
                 <FamilyImage/>
             </View>
             {/*사용자 목록*/}
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     },
     userForm:{
         width:150,
+        height:205,
         marginTop:15,
         marginLeft:37,
         padding:15,
