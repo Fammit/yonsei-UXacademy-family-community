@@ -6,10 +6,12 @@ import UserForm from '../components/UserForm';
 function HomeScreen() {
     return (
         <View style={styles.wrapper}>
-            <View>
+            {/*백그라운드 이미지*/}
+            <View style={{height:242,backgroundColor:'red'}}>
                 <FamilyImage/>
             </View>
-            <View>
+            {/*사용자 목록*/}
+            <View style={{marginTop:15,backgroundColor:'pink'}}>
                 <UserForm/>
             </View>
         </View>
@@ -19,8 +21,7 @@ function HomeScreen() {
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
-        backgroundColor:'grey',
-        
+        backgroundColor:'grey'
     }
 })
 

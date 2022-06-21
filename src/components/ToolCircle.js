@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 function ToolCircle() {
     return (
-        <View>
+        <View style={{backgroundColor:'blue'}}>
             <Text>ToolCircle</Text>
         </View>
     )
