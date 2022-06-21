@@ -11,7 +11,7 @@ function HomeScreen() {
                 <FamilyImage/>
             </View>
             {/*사용자 목록*/}
-            <View style={{marginTop:15,backgroundColor:'pink'}}>
+            <View style={styles.userForm}>
                 <UserForm/>
             </View>
         </View>
@@ -22,6 +22,14 @@ const styles = StyleSheet.create({
     wrapper:{
         flex:1,
         backgroundColor:'grey'
+    },
+    userForm:{
+        width:150,
+        marginTop:15,
+        marginLeft:37,
+        padding:15,
+        alignItems:'center',
+        backgroundColor:'pink'
     }
 })
 
