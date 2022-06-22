@@ -1,22 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-function ToolCircle() {
+function ToolCircle({name}) {
     return (
-        <View style={styles.circle}>
-            <Text>ToolCircle</Text>
+        <View>
+            <Icon name={name} size={24} />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    circle:{
-        width:37,
-        height:37,
-        borderRadius:17,
-        marginVertical:15,
-        backgroundColor:'blue'
-    }
+    
 });
 
 export default ToolCircle;
