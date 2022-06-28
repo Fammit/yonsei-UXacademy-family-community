@@ -35,9 +35,7 @@ const styles = StyleSheet.create({
     iconWrapper:{
         flexDirection:"row",
         position:'absolute',
-        right:36,
-        padding:10,
-        backgroundColor:'yellow'
+        right:10,
     },
     titleText:{
         fontSize:30,

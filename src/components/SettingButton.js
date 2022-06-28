@@ -1,19 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 
 function SettingButton() {
     return (
         <View style={styles.wrapper}>
-            <Icon name="dots-three-horizontal" size={28} />
+            <TouchableOpacity>
+                <Icon name="dots-three-horizontal" size={28} />
+            </TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     wrapper:{
-        margin:10,
-        backgroundColor:'blue'
+        margin:15,
     }
 });
 

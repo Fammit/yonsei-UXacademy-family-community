@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
 
 function AlarmButton() {
     return (
         <View style={styles.wrapper}>
-            <Icon name="bell" size={28}/>
+            <TouchableOpacity>
+                <Icon name="bell" size={28}/>
+            </TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     wrapper:{
-        backgroundColor:'red'
+        margin:10,
     }
 });
 
