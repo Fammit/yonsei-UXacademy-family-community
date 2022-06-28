@@ -9,11 +9,9 @@ function HomeScreen() {
         <ScrollView showsVerticalScrollIndicator style={styles.wrapper}>
             {/*백그라운드 이미지*/}
             <View style={{height:205,backgroundColor:'red'}}>
-                <FamilyImage/>
             </View>
             {/*사용자 목록*/}
             <View style={styles.userForm}>
-                <UserForm profile={profile}/>
             </View>
         </ScrollView>
     );   
