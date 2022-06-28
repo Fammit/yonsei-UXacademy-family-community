@@ -1,19 +1,22 @@
 import React from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import FamilyImage from '../components/FamilyImage';
-import UserForm from '../components/UserForm';
 import { profile } from '../data/dummy';
 
 function HomeScreen() {
     return (
-        <ScrollView showsVerticalScrollIndicator style={styles.wrapper}>
+        <View style={styles.wrapper}>
             {/*백그라운드 이미지*/}
-            <View style={{height:205,backgroundColor:'red'}}>
+            <View style={styles.imageWrapper}>
+            </View>
+            {/*시스템 메시지*/}
+            <View style={styles.systemMsgWrapper}>
+
             </View>
             {/*사용자 목록*/}
-            <View style={styles.userForm}>
+            <View style={styles.userProfileWrapper}>
             </View>
-        </ScrollView>
+        </View>
     );   
 };
 
@@ -22,13 +25,21 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:'grey'
     },
-    userForm:{
-        width:150,
-        height:180,
-        marginTop:15,
-        marginLeft:37,
-        padding:30,
-        alignItems:'center',
+    imageWrapper:{
+        height:195,
+        backgroundColor:'green'
+    },
+    systemMsgWrapper:{
+        height:103,
+        marginTop: 15,
+        marginHorizontal:20,
+        borderRadius:20,
+        backgroundColor:'blue'
+    },
+    userProfileWrapper:{
+        flex:1,
+        marginVertical:15,
+        marginHorizontal:20,
         backgroundColor:'pink'
     }
 })
