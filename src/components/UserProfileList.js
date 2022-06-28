@@ -13,14 +13,13 @@ function UserProfileList ({profile}) {
             data={profile}
             renderItem={renderItem}
             numColumns={2}
-            columnWrapperStyle={{justifyContent:'space-between'}}/>
+            columnWrapperStyle={{justifyContent:'space-evenly'}}/>
             
     );
 }
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
-        paddingVertical:10
     }
 });
 

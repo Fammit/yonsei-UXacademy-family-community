@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
         backgroundColor:'grey'
     },
     systemMsgWrapper:{
-        height:103,
+        alignItems:'center',
+        height:80,
         marginTop: 15,
         marginHorizontal:20,
         borderRadius:20,
@@ -44,7 +45,6 @@ const styles = StyleSheet.create({
         flex:1,
         marginVertical:15,
         marginHorizontal:20,
-        backgroundColor:'pink'
     }
 })
 
