@@ -19,7 +19,7 @@ function FamilyImage() {
                 <Text style={styles.titleText}>Text Area</Text>
                 <Text style={styles.dateText}>{formatted}</Text>
             </View>
-            <View>
+            <View style={styles.iconWrapper}>
                 <SettingButton/>
                 <AlarmButton/>
             </View>
@@ -30,6 +30,14 @@ function FamilyImage() {
 
 const styles = StyleSheet.create({
     wrapper:{
+        flex:1
+    },
+    iconWrapper:{
+        flexDirection:"row",
+        position:'absolute',
+        right:36,
+        padding:10,
+        backgroundColor:'yellow'
     },
     titleText:{
         fontSize:30,

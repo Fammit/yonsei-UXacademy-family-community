@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
     imageWrapper:{
         height:195,
-        backgroundColor:'grey'
+        backgroundColor:'white'
     },
     systemMsgWrapper:{
         alignItems:'center',
