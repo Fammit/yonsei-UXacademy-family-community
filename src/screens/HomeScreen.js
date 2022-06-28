@@ -12,12 +12,8 @@ function HomeScreen() {
                 <FamilyImage/>
             </View>
             {/*사용자 목록*/}
-            <View style={{flexDirection:'row'}}>
-                {profile.map((item, idx) => (
-                    <View key={idx} style={styles.userForm}>
-                        <UserForm source={item.image}/>
-                    </View>
-                ))}
+            <View style={styles.userForm}>
+                <UserForm profile={profile}/>
             </View>
         </ScrollView>
     );   

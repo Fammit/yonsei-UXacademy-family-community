@@ -1,8 +1,7 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { profile } from '../data/dummy';
 
-function UserCircle ({source}) {
+function UserCircle ({id, source}) {
     return (
         <View style={styles.circle}>
             <Image source={source} style={styles.image}/>

@@ -18,20 +18,7 @@ function MainTab() {
                     headerShown: false,
                     tabBarShowLabel: false,
                     tabBarActiveTintColor: 'black'}}>
-                <Tab.Screen
-                    name="TemplateStack"
-                    component={TemplateStack}
-                    options={{
-                        tabBarIcon: ({color}) => 
-                            <Icon name="document-outline" size={24} color={color}/>
-                    }}/>
-                <Tab.Screen
-                    name="ChatStack"
-                    component={ChatStack}
-                    options={{
-                        tabBarIcon: ({color}) => 
-                            <Icon name="chatbubble-outline" size={24} color={color}/>
-                    }}/>
+            
                 <Tab.Screen
                     name="HomeStack"
                     component={HomeStack}
@@ -39,6 +26,13 @@ function MainTab() {
                         tabBarIcon: ({color}) => 
                             <Icon name="home-outline" size={24} color={color}/>
                     }} />
+                <Tab.Screen
+                    name="ChatStack"
+                    component={ChatStack}
+                    options={{
+                        tabBarIcon: ({color}) => 
+                            <Icon name="chatbubble-outline" size={24} color={color}/>
+                    }}/>
                 <Tab.Screen
                     name="StorageStack"
                     component={StorageStack}

@@ -1,21 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import UserCircle from './UserCircle';
 import ToolCircle from './ToolCircle';
 import { icon } from '../data/dummy';
 
 //Where can I have to use map func?
-function UserForm({source}) {
-    return (
+function UserForm({profile}) {
+    const renderItem = ({item}) => {
         <View>
-            <UserCircle source={source}/>
-            {icon.map((item, idx) => (
-                <View key={idx} style={styles.circle}>
-                    <ToolCircle name={item.name}/>
-                </View>
-            ))}
-            <ToolCircle/>
+            <UserCircle id={item.id} source={item.image} />
         </View>
+    }
+
+    return (
+        <FlatList
+            data={profile}
+            renderItem={renderItem}
+            numColumns={2}
+            />
     )
 }
 
