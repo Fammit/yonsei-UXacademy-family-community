@@ -5,15 +5,13 @@ import UploadModal from './UploadModal';
 
 function UploadButton() {
     const [modalVisible, setModalVisible] = useState(false);
-    const onPress = () => {
-        setModalVisible(true);
-    }
+    
     return (
         <>
             <View style={styles.wrapper}>
                 <TouchableOpacity 
                     style={styles.button}
-                    onPress={onPress}>
+                    onPress={() => setModalVisible(true)}>
                     <Icon name="plus-a" size={28} color="white"/>
                 </TouchableOpacity>
             </View>

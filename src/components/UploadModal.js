@@ -19,7 +19,7 @@ function UploadModal({visible, onClose}) {
                         <Text style={styles.text}>일상 올리기</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
-                        style={styles.button} 
+                        style={styles.button}
                         >
                         <Text style={styles.text}>질문 올리기</Text>
                     </TouchableOpacity>

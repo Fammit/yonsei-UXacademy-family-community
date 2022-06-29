@@ -1,9 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Image, Text, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 function UserProfile({text, source}) {
+    const navigation = useNavigation();
+
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('AnswerScreen')}>
             <View>
                 <Image
                     source={source}
