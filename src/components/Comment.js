@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { TextInput, StyleSheet, Text, View } from 'react-native';
 
 function Comment() {
     return (
         <View style={styles.wrapper}>
-            <Text>Comment</Text>
+            <Text>Text Area</Text>
+            <View>
+                <TextInput style={styles.input}/>
+            </View>
         </View>
     )
 }
@@ -12,8 +15,13 @@ function Comment() {
 const styles = StyleSheet.create({
     wrapper:{
         height:90,
-        backgroundColor:"pink"
+        marginHorizontal:30,
         
+    },
+    input:{
+        marginVertical:10,
+        borderRadius:20,
+        backgroundColor:'#d3d3d3'
     }
 })
 
