@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
     },
     textWrapper:{
         position:"absolute",
-        top:65,
-        padding:5
+        top:80,
+        padding:5,
+        marginLeft:20
     },
     iconWrapper:{
         flexDirection:"row",
