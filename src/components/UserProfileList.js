@@ -20,6 +20,8 @@ function UserProfileList ({profile}) {
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
+        marginVertical:15,
+        marginHorizontal:20,
     }
 });
 

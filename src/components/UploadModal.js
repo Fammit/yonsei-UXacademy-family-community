@@ -1,7 +1,10 @@
 import React from 'react';
 import { Modal, TouchableOpacity, Pressable, StyleSheet, Text, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 function UploadModal({visible, onClose}) {
+    const navigation = useNavigation();
+
     return (
         <Modal
             visible={visible}
@@ -15,7 +18,9 @@ function UploadModal({visible, onClose}) {
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.text}>일상 올리기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity 
+                        style={styles.button} 
+                        >
                         <Text style={styles.text}>질문 올리기</Text>
                     </TouchableOpacity>
                 </View>

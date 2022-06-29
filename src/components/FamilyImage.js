@@ -14,7 +14,7 @@ function FamilyImage() {
     const formatted = `${year}년 ${month}월 ${day}일`
     
     return (
-        <View>
+        <View style={styles.wrapper}>
             <View style={styles.textWrapper}>
                 <Text style={styles.titleText}>Text Area</Text>
                 <Text style={styles.dateText}>{formatted}</Text>
@@ -30,7 +30,7 @@ function FamilyImage() {
 
 const styles = StyleSheet.create({
     wrapper:{
-        flex:1
+        height:195
     },
     textWrapper:{
         position:"absolute",

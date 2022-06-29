@@ -9,17 +9,11 @@ function HomeScreen() {
     return (
         <View style={styles.wrapper}>
             {/*백그라운드 이미지*/}
-            <View style={styles.imageWrapper}>
-                <FamilyImage/>
-            </View>
+            <FamilyImage/>
             {/*시스템 메시지*/}
-            <View style={styles.systemMsgWrapper}>
-                <SystemMsgForm/>
-            </View>
+            <SystemMsgForm/>
             {/*사용자 목록*/}
-            <View style={styles.userProfileWrapper}>
-                <UserProfileList profile={profile}/>
-            </View>
+            <UserProfileList profile={profile}/>
         </View>
     );   
 };
@@ -29,22 +23,6 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:'white'
     },
-    imageWrapper:{
-        height:195,
-    },
-    systemMsgWrapper:{
-        alignItems:'center',
-        height:80,
-        marginTop: 15,
-        marginHorizontal:20,
-        borderRadius:20,
-        backgroundColor:'grey'
-    },
-    userProfileWrapper:{
-        flex:1,
-        marginVertical:15,
-        marginHorizontal:20,
-    }
-})
+});
 
-export default HomeScreen
+export default HomeScreen;
