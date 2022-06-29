@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginHorizontal:16,
         marginVertical:16,
         borderRadius:20,
-        backgroundColor:"blue"
+        backgroundColor:"grey"
         
     }
 })

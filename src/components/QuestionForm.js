@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginVertical:13,
         marginHorizontal:13,
         borderRadius:20,
-        backgroundColor:"grey"
+        backgroundColor:"#d3d3d3"
     },
     text:{
         fontSize:30

@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
         width:60,
         height:60,
         borderRadius:33,
-        margin:15,
+        margin:17,
+        marginBottom:10,
         backgroundColor:'grey'
     },
     text:{
