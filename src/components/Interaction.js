@@ -1,15 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import AlarmButton from './AlarmButton';
-import SettingButton from './SettingButton';
+import LikeButton from './LikeButton';
+import SaveButton from './SaveButton';
 
 function Interaction() {
     return (
         <View style={styles.wrapper}>
             <Text>TextArea</Text>
             <View style={styles.iconArea}>
-                <AlarmButton/>
-                <SettingButton/>
+                <LikeButton/>
+                <SaveButton/>
             </View>
         </View>
     )
