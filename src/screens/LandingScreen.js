@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import AuthButton from '../components/AuthButton';
 
 function LandingScreen() {
     return (
@@ -8,7 +9,8 @@ function LandingScreen() {
                 <Text>LandingScreen</Text>
             </View>
             <View style={styles.btnArea}>
-                
+                <AuthButton/>
+                <AuthButton/>
             </View>
         </View>
     )
@@ -17,15 +19,14 @@ function LandingScreen() {
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
-        backgroundColor:'blue'
+        backgroundColor:'white'
     },
     textArea:{
         flex:1,
         alignItems:'center',
-        backgroundColor:'red'
     },
     btnArea:{
-        backgroundColor:'green'
+        marginVertical:50,
     }
 });
 
