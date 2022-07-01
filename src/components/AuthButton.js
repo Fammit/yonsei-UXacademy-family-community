@@ -1,10 +1,14 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 function AuthButton() {
+    const navigation = useNavigation();
+
     return (
         <TouchableOpacity
-            style={styles.button}>
+            style={styles.button}
+            onPress={() => {navigation.navigate('SignInScreen')}}>
             <View style={styles.textWrapper}>
                 <Text>AuthButton</Text>
             </View>
