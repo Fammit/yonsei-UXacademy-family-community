@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-function AuthButton() {
+function SocialAuthButton({text}) {
     const navigation = useNavigation();
 
     return (
@@ -10,7 +10,7 @@ function AuthButton() {
             style={styles.button}
             onPress={() => {navigation.navigate('SignInScreen')}}>
             <View style={styles.textWrapper}>
-                <Text>AuthButton</Text>
+                <Text>{text}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -21,14 +21,13 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         height:50,
-        margin:10,
+        marginVertical:5,
         marginHorizontal:25,
+        borderRadius:25,
         backgroundColor:'grey',
-        borderRadius:20,
-        paddingVertical:13
     },
     textWrapper:{
         marginLeft:95
     }
 });
-export default AuthButton;
+export default SocialAuthButton;
