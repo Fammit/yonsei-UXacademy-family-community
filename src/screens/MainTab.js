@@ -5,7 +5,6 @@ import Icon  from 'react-native-vector-icons/Ionicons';
 import HomeStack from '../stacks/HomeStack';
 import ChatStack from '../stacks/ChatStack';
 import StorageStack from '../stacks/StorageStack';
-import TemplateStack from '../stacks/TemplateStack';
 import MyProfileStack from '../stacks/MyProfileStack';
 
 const Tab = createBottomTabNavigator();
@@ -18,7 +17,6 @@ function MainTab() {
                     headerShown: false,
                     tabBarShowLabel: false,
                     tabBarActiveTintColor: 'black'}}>
-            
                 <Tab.Screen
                     name="HomeStack"
                     component={HomeStack}

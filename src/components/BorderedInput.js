@@ -20,9 +20,10 @@ const styles = StyleSheet.create({
     input:{
         paddingVertical:5,
         borderWidth:1,
-        height:49,
+        height:48,
         borderRadius:20,
-        borderColor:'black'
+        borderColor:'black',
+        backgroundColor:'white'
     }
 });
 

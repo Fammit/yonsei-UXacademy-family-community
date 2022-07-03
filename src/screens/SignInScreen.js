@@ -1,8 +1,11 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import BorderedInput from '../components/BorderedInput';
+import {useNavigation} from '@react-navigation/native';
 
 function SignInScreen() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.wrapper}>
             <View style={styles.textWrapper}>
@@ -17,6 +20,12 @@ function SignInScreen() {
                     <Text>SignIn</Text>
                 </TouchableOpacity>
             </View>
+            <View>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('MainTab')}>
+                    <Text>Signin</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -27,12 +36,13 @@ const styles = StyleSheet.create({
         backgroundColor:'green'
     },
     textWrapper:{
-        flex:1,
         backgroundColor:'pink'
     },
     authForm:{
         width:'100%',
-        marginVertical:50
+        paddingHorizontal:16,
+        marginTop:50,
+        backgroundColor:'blue'
     },
     btnForm:{
         marginVertical:15,
