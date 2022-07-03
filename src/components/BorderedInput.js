@@ -2,28 +2,20 @@ import React from 'react';
 import {TextInput, StyleSheet, Text, View } from 'react-native';
 
 function BorderedInput() {
-    return (
-        <View style={styles.wrapper}>
-            <TextInput
+    return <TextInput 
                 placeholder='textArea'
                 style={styles.input}/>
-        </View>
-    )
 }
 
 const styles = StyleSheet.create({
-    wrapper:{
-        marginVertical:10,
-        paddingHorizontal:35,
-        width:'100%'
-    },
     input:{
-        paddingVertical:5,
-        borderWidth:1,
-        height:48,
-        borderRadius:20,
         borderColor:'black',
-        backgroundColor:'white'
+        borderWidth:1,
+        paddingHorizontal:16,
+        height:48,
+        borderRadius:25,
+        backgroundColor:'white',
+        marginBottom:16
     }
 });
 

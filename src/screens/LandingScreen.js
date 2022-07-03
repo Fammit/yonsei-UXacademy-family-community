@@ -8,15 +8,17 @@ function LandingScreen() {
 
     return (
         <View style={styles.wrapper}>
-            <ImageBackground style={{flex:1, backgroundColor:'blue'}}>
-                <Text>LandingScreen</Text>
+            <ImageBackground style={{flex:1,}}>
+                <View>
+                    <Text style={{textAlign:"center", fontSize:50}}>LandingScreen</Text>
+                </View>
                 <View style={styles.btnArea}>
                     <SocialAuthButton text="이메일로 시작하기"/>
                     <SocialAuthButton text="구글로 시작하기"/>
                     <View style={styles.textArea}>
                         <TouchableOpacity
                             onPress = {() => navigation.navigate('SignInScreen')}>
-                            <Text>로그인하기</Text>
+                            <Text style={{fontWeight:'bold'}}>로그인하기</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -30,7 +32,8 @@ const styles = StyleSheet.create({
         flex:1,
     },
     btnArea:{
-        marginTop:440,
+        flex:1,
+        marginTop:380,
         paddingVertical:10
     },
     textArea:{
