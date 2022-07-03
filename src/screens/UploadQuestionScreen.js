@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-function UploadQuestionsScreen() {
+function UploadQuestionScreen() {
     return (
         <View>
             <Text>UploadQuestionsScreen</Text>
@@ -11,4 +11,4 @@ function UploadQuestionsScreen() {
 
 const styles = StyleSheet.create({});
 
-export default UploadQuestionsScreen;
+export default UploadQuestionScreen;
