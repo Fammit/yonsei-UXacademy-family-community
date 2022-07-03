@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     button:{
         flexDirection:'row',
         alignItems:'center',
-        height:50,
+        height:48,
         marginVertical:5,
         marginHorizontal:25,
         borderRadius:25,

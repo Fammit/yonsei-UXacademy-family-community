@@ -6,19 +6,22 @@ function SubmitButton() {
     const navigation = useNavigation();
 
     return (
-        <View style={{borderRadius:25}}>
             <TouchableOpacity
                 style={styles.wrapper}
                 onPress={() => navigation.navigate('MainTab')}>
-                <Text>SubmitButton</Text>
+                <Text>로그인</Text>
             </TouchableOpacity>
-        </View>
     )
 }
 
 const styles = StyleSheet.create({
     wrapper:{
-        borderRadius:25
+        alignItems:'center',
+        justifyContent:'center',
+        height:48,
+        borderWidth:1,
+        borderRadius:25,
+        backgroundColor:'grey'
     }
 });
 
