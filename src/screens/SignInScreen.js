@@ -25,7 +25,7 @@ function SignInScreen() {
                     <Text style={{textAlign:'center'}}>아직 계정이 없으세요?</Text>
                     <TouchableOpacity
                         onPress={()=> navigation.navigate('SignUpScreen')}>
-                        <Text Text style={{fontWeight:'bold',textAlign:'center', textDecorationLine:'underline line-through'}}>회원가입하기</Text>
+                        <Text Text style={{fontWeight:'bold',textAlign:'center', textDecorationLine:'underline'}}>회원가입하기</Text>
                     </TouchableOpacity>
                 </View>
             </View>

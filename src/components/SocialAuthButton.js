@@ -8,7 +8,7 @@ function SocialAuthButton({text}) {
     return (
         <TouchableOpacity
             style={styles.button}
-            onPress={() => {navigation.navigate('SignInScreen')}}>
+            onPress={() => {navigation.navigate('SignUpScreen')}}>
             <View style={styles.textWrapper}>
                 <Text>{text}</Text>
             </View>
@@ -21,9 +21,10 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         height:48,
-        marginVertical:5,
-        marginHorizontal:25,
+        borderWidth:1,
         borderRadius:25,
+        marginHorizontal:15,
+        marginVertical:10,
         backgroundColor:'grey',
     },
     textWrapper:{

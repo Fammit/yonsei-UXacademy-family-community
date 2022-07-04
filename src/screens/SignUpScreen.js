@@ -1,14 +1,35 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import BorderedInput from '../components/BorderedInput';
+import SubmitButton from '../components/SubmitButton';
 
-const SignUpScreen = () => {
+function SignUpScreen() {
   return (
-    <View>
-      <Text>SignUpScreen</Text>
+    <View style={styles.wrapper}>
+      <View style={styles.form}>
+        <BorderedInput/>
+        <BorderedInput/>
+        <BorderedInput/>
+        <View style={styles.button}>
+          <SubmitButton/>
+        </View>
+      </View>
     </View>
   )
 }
 
-export default SignUpScreen
+const styles = StyleSheet.create({
+  wrapper:{
+    flex:1
+  },
+  form:{
+    width:'100%',
+    marginTop:100,
+    paddingHorizontal:16
+  },
+  button:{
+    marginTop:34
+  }
+});
 
-const styles = StyleSheet.create({})
+export default SignUpScreen;

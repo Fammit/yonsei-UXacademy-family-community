@@ -10,7 +10,7 @@ function LandingScreen() {
         <View style={styles.wrapper}>
             <ImageBackground style={{flex:1,}}>
                 <View>
-                    <Text style={{textAlign:"center", fontSize:50}}>LandingScreen</Text>
+                    <Text style={{textAlign:"center", fontSize:50}}></Text>
                 </View>
                 <View style={styles.btnArea}>
                     <SocialAuthButton text="이메일로 시작하기"/>
@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
         flex:1,
     },
     btnArea:{
-        flex:1,
-        marginTop:380,
-        paddingVertical:10
+        width:'100%',
+        marginTop:360,
+        paddingVertical:10,
     },
     textArea:{
         marginTop:20,
