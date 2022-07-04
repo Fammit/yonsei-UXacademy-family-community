@@ -3,23 +3,15 @@ import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
 import UploadModal from './UploadModal';
 
-function UploadButton() {
-    const [modalVisible, setModalVisible] = useState(false);
-    
+function UploadButton({openMenu}) {
     return (
-        <>
-            <View style={styles.wrapper}>
-                <TouchableOpacity 
-                    style={styles.button}
-                    onPress={() => setModalVisible(true)}>
-                    <Icon name="plus-a" size={28} color="white"/>
-                </TouchableOpacity>
-            </View>
-            {/*모달 실행*/}
-            <UploadModal
-                visible={modalVisible}
-                onClose={() => setModalVisible(false)}/>
-        </>
+        <View style={styles.wrapper}>
+            <TouchableOpacity 
+                style={styles.button}
+                onPress={openMenu}>
+                <Icon name="plus-a" size={28} color="white"/>
+            </TouchableOpacity>
+        </View>
     )
 }
 

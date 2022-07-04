@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import AlarmButton from './AlarmButton';
 import UploadButton from './UploadButton';
 import SettingButton from './SettingButton';
+import DropdownList from './DropdownList';
 
 function FamilyImage() {
 
@@ -23,7 +24,7 @@ function FamilyImage() {
                 <SettingButton/>
                 <AlarmButton/>
             </View>
-            <UploadButton/>
+            <DropdownList/>
         </View>
     );
 }

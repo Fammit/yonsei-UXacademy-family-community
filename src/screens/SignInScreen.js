@@ -7,7 +7,7 @@ import SocialAuthButton from '../components/SocialAuthButton';
 
 function SignInScreen() {
     const navigation = useNavigation();
-
+    
     return (
         <View style={styles.wrapper}>
             <View style={styles.header}>
@@ -16,7 +16,7 @@ function SignInScreen() {
                 <BorderedInput/>
                 <BorderedInput/>
                 <View style={styles.button}>
-                    <SubmitButton/>
+                    <SubmitButton text="로그인"/>
                 </View>
             </View>
             <View style={styles.footer}>
@@ -25,7 +25,7 @@ function SignInScreen() {
                     <Text style={{textAlign:'center'}}>아직 계정이 없으세요?</Text>
                     <TouchableOpacity
                         onPress={()=> navigation.navigate('SignUpScreen')}>
-                        <Text Text style={{fontWeight:'bold',textAlign:'center', textDecorationLine:'underline'}}>회원가입하기</Text>
+                        <Text style={styles.text}>회원가입하기</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -53,6 +53,11 @@ const styles = StyleSheet.create({
     },
     textForm:{
         marginTop:25
+    },
+    text:{
+        fontWeight:'bold',
+        textAlign:'center', 
+        textDecorationLine:'underline'
     }
 });
 

@@ -11,7 +11,7 @@ function SignUpScreen() {
         <BorderedInput/>
         <BorderedInput/>
         <View style={styles.button}>
-          <SubmitButton/>
+          <SubmitButton text="회원가입"/>
         </View>
       </View>
     </View>

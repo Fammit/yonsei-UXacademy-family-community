@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-function SubmitButton() {
+function SubmitButton({text}) {
     const navigation = useNavigation();
 
     return (
             <TouchableOpacity
                 style={styles.wrapper}
                 onPress={() => navigation.navigate('MainTab')}>
-                <Text>로그인</Text>
+                <Text>{text}</Text>
             </TouchableOpacity>
     )
 }
