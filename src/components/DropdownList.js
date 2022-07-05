@@ -24,7 +24,7 @@ function DropdownList() {
                     anchor={<UploadButton openMenu={openMenu}></UploadButton>}>
                     <Menu.Item onPress={() => navigation.navigate('UploadQuestionScreen')} title="질문 올리기" />
                     <Divider />
-                    <Menu.Item onPress={() => {}} title="일상 올리기" />
+                    <Menu.Item onPress={() => navigation.navigate('UploadDailyScreen')} title="일상 올리기" />
                 </Menu>
             </View>
         </Provider>

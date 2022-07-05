@@ -1,11 +1,15 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
+import {useNavigation} from '@react-navigation/native';
 
 function AlarmButton() {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.wrapper}>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('NotificationScreen')}>
                 <Icon name="bell" size={28}/>
             </TouchableOpacity>
         </View>

@@ -6,7 +6,7 @@ function UserProfile({text, source}) {
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('AnswerScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('FeedScreen')}>
             <View>
                 <Image
                     source={source}

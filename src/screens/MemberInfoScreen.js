@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const MemberInfoScreen = () => {
+function MemberInfoScreen() {
   return (
     <View>
       <Text>MemberInfoScreen</Text>
@@ -9,6 +9,5 @@ const MemberInfoScreen = () => {
   )
 }
 
-export default MemberInfoScreen
-
+export default MemberInfoScreen;
 const styles = StyleSheet.create({})

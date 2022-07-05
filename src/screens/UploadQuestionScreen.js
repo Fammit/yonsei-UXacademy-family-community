@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet,  View, Text, ScrollView } from 'react-native';
 import InputQuestion from '../components/InputQuestion';
-import User from '../components/User';
+import MemberProfile from '../components/atoms/member_profile';
 
 function UploadQuestionScreen() {
     return (
@@ -11,7 +11,7 @@ function UploadQuestionScreen() {
             </View>
             <View style={styles.line}></View>
             <View style={styles.form}>
-                <User/>
+                <MemberProfile/>
                 <View style={{marginLeft:20}}>
                     <Text>질문 작성하기</Text>
                 </View>

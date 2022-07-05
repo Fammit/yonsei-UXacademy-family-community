@@ -1,28 +1,25 @@
 import React from 'react';
 import { TextInput, StyleSheet, Text, View } from 'react-native';
 
-function Comment() {
+function CommentInputText() {
     return (
         <View style={styles.wrapper}>
-            <Text>Text Area</Text>
-            <View>
-                <TextInput style={styles.input}/>
-            </View>
+            <TextInput style={styles.input}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     wrapper:{
-        height:90,
-        marginHorizontal:30,
-        
+        marginTop:5,
     },
     input:{
-        marginVertical:10,
-        borderRadius:20,
+        height:40,
+        borderColor:'black',
+        borderWidth:1,
+        borderRadius:25,
         backgroundColor:'#d3d3d3'
     }
 })
 
-export default Comment;
+export default CommentInputText;

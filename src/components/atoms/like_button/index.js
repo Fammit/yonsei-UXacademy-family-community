@@ -4,17 +4,12 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 function LikeButton() {
     return (
-        <View style={styles.wrapper}>
-            <TouchableOpacity>
+        <TouchableOpacity>
                 <Icon name="hearto" size={28} />
-            </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
     )
 }
-const styles = StyleSheet.create({
-    wrapper:{
-        margin:15,
-    }
-})
+
+const styles = StyleSheet.create({})
 
 export default LikeButton;

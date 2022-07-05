@@ -4,9 +4,9 @@ import { StyleSheet, Text, View } from 'react-native';
 function QuestionForm() {
     return (
         <View style={styles.wrapper}>
-            <Text style={styles.text}>TextArea</Text>
+            <Text>질문</Text>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -18,9 +18,6 @@ const styles = StyleSheet.create({
         borderRadius:20,
         backgroundColor:"#d3d3d3"
     },
-    text:{
-        fontSize:30
-    }
 })
 
 export default QuestionForm;
