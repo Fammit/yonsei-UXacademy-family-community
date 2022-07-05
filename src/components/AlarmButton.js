@@ -14,7 +14,8 @@ function AlarmButton() {
 
 const styles = StyleSheet.create({
     wrapper:{
-        margin:10,
+        margin:15,
+        marginRight:3
     }
 });
 

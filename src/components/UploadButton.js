@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/Fontisto';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import UploadModal from './UploadModal';
-
+import {Button} from 'react-native-paper';
 function UploadButton({openMenu}) {
     return (
         <View style={styles.wrapper}>
-            <TouchableOpacity 
+            <TouchableOpacity
                 style={styles.button}
                 onPress={openMenu}>
-                <Icon name="plus-a" size={28} color="white"/>
+                <Icon name="plus-square-o" size={36}/>
             </TouchableOpacity>
         </View>
     )
@@ -17,14 +17,10 @@ function UploadButton({openMenu}) {
 
 const styles = StyleSheet.create({
     wrapper:{
-        position:'absolute',
-        right:25,
-        top:135
     },
     button:{
-        width:56,
+        width:36,
         height:56,
-        backgroundColor:'grey',
         borderRadius:28,
         alignItems:'center',
         justifyContent:'center'

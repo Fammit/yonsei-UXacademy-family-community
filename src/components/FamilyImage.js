@@ -21,10 +21,10 @@ function FamilyImage() {
                 <Text style={styles.dateText}>{formatted}</Text>
             </View>
             <View style={styles.iconWrapper}>
-                <SettingButton/>
+                <DropdownList/>
                 <AlarmButton/>
+                <SettingButton/>
             </View>
-            <DropdownList/>
         </View>
     );
 }
