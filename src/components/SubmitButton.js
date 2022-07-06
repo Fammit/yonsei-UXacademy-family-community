@@ -2,14 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-function SubmitButton({text}) {
+function SubmitButton({title, onRegisterSubmit, onSignInSubmit, isSignUp}) {
     const navigation = useNavigation();
 
     return (
             <TouchableOpacity
                 style={styles.wrapper}
-                onPress={() => navigation.navigate('MainTab')}>
-                <Text>{text}</Text>
+                onPress={isSignUp ? onRegisterSubmit : onSignInSubmit}
+                >
+                <Text>{title}</Text>
             </TouchableOpacity>
     )
 }
