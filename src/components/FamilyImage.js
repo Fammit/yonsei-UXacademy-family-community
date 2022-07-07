@@ -1,22 +1,25 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native'
 import AlarmButton from './AlarmButton';
 import UploadButton from './UploadButton';
 import SettingButton from './SettingButton';
 import DropdownList from './DropdownList';
+import {useUserContext} from '../contexts/UserContext';
+
 
 function FamilyImage() {
-
+    const {user} = useUserContext();
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
     const day = today.getDate();
 
-    const formatted = `${year}년 ${month}월 ${day}일`
-    
+    const formatted = `${year}년 ${month}월 ${day}일`;
+
     return (
         <View style={styles.wrapper}>
             <View style={styles.textWrapper}>
+                <Text>{user.info}</Text>
                 <Text style={styles.titleText}>Text Area</Text>
                 <Text style={styles.dateText}>{formatted}</Text>
             </View>
