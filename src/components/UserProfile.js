@@ -2,15 +2,13 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Image, Text, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-function UserProfile({text, source}) {
+function UserProfile({text}) {
     const navigation = useNavigation();
 
     return (
         <TouchableOpacity onPress={() => navigation.navigate('FeedScreen')}>
-            <View>
-                <Image
-                    source={source}
-                    style={styles.wrapper}/>
+            <View style={styles.wrapper}>
+                <Text>{text}</Text>
             </View>
         </TouchableOpacity>
     )

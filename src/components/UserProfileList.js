@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 import UserProfile from './UserProfile';
+import {test} from '../lib/family';
+import ListItem from '../data/ListItem';
 
-const renderItem = ({item}) => (
-    <UserProfile text={item.text}/>
-);
 
-function UserProfileList ({profile}) {
+function UserProfileList () {
+    const [data, setData] = useState('');
+    
+    useEffect(() => {
+        test().then(setData);
+
+    }, [])
+
+    console.log('FRONT',data)
     return (
         <FlatList
             style={styles.wrapper}
-            data={profile}
-            renderItem={renderItem}
+            data={data}
+            renderItem={({item}) => (
+                <View>
+
+                    <UserProfile text={item.info} />
+                </View>
+            )}
             numColumns={2}
             columnWrapperStyle={{justifyContent:'space-evenly'}}/>
             

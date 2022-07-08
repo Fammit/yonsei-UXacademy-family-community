@@ -2,10 +2,18 @@ import firestore from '@react-native-firebase/firestore';
 
 export const familyCollection = firestore().collection('family');
 
-export async function getFamily(){
-    const snapshot = await familyCollection.get();
-    const family = snapshot.docs.map((doc) => ({
-        ...doc.data()
+export async function createFamily({user}){
+    return familyCollection.doc('test').set({
+        user
+    });
+}
+
+export async function test(){
+    const snapshot = await familyCollection.doc('test').collection('users').get();
+    const member = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id
     }))
-    console.log(family)
+    console.log('결과',member);
+    return member;
 }

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {test} from '../lib/family';
 
 function StorageScreen() {
+    const [checked, setChecked] = useState(false);
+
     return (
         <View>
-            <Text>StorageScreen</Text>
+            
         </View>
     );   
 };
