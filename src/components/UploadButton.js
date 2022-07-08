@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import UploadModal from './UploadModal';
-import {Button} from 'react-native-paper';
 
 function UploadButton({openMenu}) {
     return (
