@@ -6,8 +6,8 @@ import {
   Keyboard,
   Alert
 } from 'react-native';
-import BorderedInput from '../components/BorderedInput';
-import SubmitButton from '../components/SubmitButton';
+import BorderedInput from '../components/atoms/bordered_input';
+import AuthSubmitButton from '../components/atoms/auth_submit_button';
 import {signUp} from '../lib/auth';
 
 function SignUpScreen() {
@@ -50,7 +50,7 @@ function SignUpScreen() {
           value={form.confirmPassword}
           onChangeText={createChangeTextHandler('confirmPassword')}/>
         <View style={styles.button}>
-          <SubmitButton 
+          <AuthSubmitButton 
             title="회원가입" 
             onRegisterSubmit={onRegisterSubmit}
             isSignUp={isSignUp}/>

@@ -1,20 +1,20 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View, ImageBackground } from 'react-native';
-import SocialAuthButton from '../components/SocialAuthButton';
 import {useNavigation} from '@react-navigation/native';
+import SocialAuthButton from '../components/atoms/social_auth_button';
 
 function LandingScreen() {
     const navigation = useNavigation();
-
+    
     return (
         <View style={styles.wrapper}>
-            <ImageBackground style={{flex:1,}}>
+            <ImageBackground style={styles.background}>
                 <View>
-                    <Text style={{textAlign:"center", fontSize:50}}></Text>
+                    <Text style={styles.text}></Text>
                 </View>
                 <View style={styles.btnArea}>
-                    <SocialAuthButton text="이메일로 시작하기"/>
-                    <SocialAuthButton text="구글로 시작하기"/>
+                    <SocialAuthButton title="이메일로 시작하기"/>
+                    <SocialAuthButton title="구글로 시작하기"/>
                     <View style={styles.textArea}>
                         <TouchableOpacity
                             onPress = {() => navigation.navigate('SignInScreen')}>
@@ -31,6 +31,9 @@ const styles = StyleSheet.create({
     wrapper:{
         flex:1,
     },
+    background:{
+        flex:1
+    },  
     btnArea:{
         width:'100%',
         marginTop:360,
@@ -39,6 +42,10 @@ const styles = StyleSheet.create({
     textArea:{
         marginTop:20,
         alignItems:'center'
+    },
+    text:{
+        textAlign:"center", 
+        fontSize:50
     }
 });
 

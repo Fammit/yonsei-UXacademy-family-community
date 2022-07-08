@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-function SubmitButton({title, onRegisterSubmit, onSignInSubmit, isSignUp}) {
+function AuthSubmitButton({title, onRegisterSubmit, onSignInSubmit, isSignUp}) {
     const navigation = useNavigation();
 
     return (
@@ -26,4 +27,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default SubmitButton;
+export default AuthSubmitButton;

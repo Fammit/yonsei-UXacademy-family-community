@@ -7,9 +7,9 @@ import {
     Keyboard, 
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import BorderedInput from '../components/BorderedInput';
-import SubmitButton from '../components/SubmitButton';
-import SocialAuthButton from '../components/SocialAuthButton';
+import SignForm from '../components/molecules/sign_form';
+import AuthSubmitButton from '../components/atoms/auth_submit_button';
+import SocialAuthButton from '../components/atoms/social_auth_button';
 import {signIn} from '../lib/auth';
 import {getUser} from '../lib/users';
 import {useUserContext} from '../contexts/UserContext';
@@ -23,12 +23,12 @@ function SignInScreen() {
     })
     const {setUser} = useUserContext();
 
-      //form 객체에서 원하는 키 업데이트
+    //form 객체에서 원하는 키 업데이트
     const createChangeTextHandler = (name) => (value) => {
         setForm({...form, [name]: value});
     }
     
-      //로그인 실행
+    //EventHandler : 로그인 실행
     const onSignInSubmit = async () => {
         Keyboard.dismiss();
         const {email, password} = form;
@@ -41,10 +41,10 @@ function SignInScreen() {
             }else{
                 setUser(profile);
             }
-            console.log("loginsuccess");
+            //console.log("loginsuccess");
         } catch(e){
             Alert.alert('로그인 실패');
-            console.log(e);
+            //console.log(e);
         }
     }
 
@@ -53,21 +53,16 @@ function SignInScreen() {
             <View style={styles.header}>
             </View>
             <View style={styles.form}>
-                <BorderedInput
-                    value={form.email}
-                    onChangeText={createChangeTextHandler('email')}/>
-                <BorderedInput
-                    value={form.password}
-                    onChangeText={createChangeTextHandler('password')}/>
+                <SignForm form={form} createChangeTextHandler={createChangeTextHandler}/>
                 <View style={styles.button}>
-                    <SubmitButton 
+                    <AuthSubmitButton 
                         title="로그인"
                         onSignInSubmit={onSignInSubmit}
                         isSignUp={isSignUp}/>
                 </View>
             </View>
             <View style={styles.footer}>
-                <SocialAuthButton text="구글로 시작하기"/>
+                <SocialAuthButton title="구글로 시작하기"/>
                 <View style={styles.textForm}>
                     <Text style={{textAlign:'center'}}>아직 계정이 없으세요?</Text>
                     <TouchableOpacity

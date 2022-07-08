@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
-function SocialAuthButton({text}) {
+function SocialAuthButton({title}) {
     const navigation = useNavigation();
 
     return (
@@ -10,7 +10,7 @@ function SocialAuthButton({text}) {
             style={styles.button}
             onPress={() => {navigation.navigate('SignUpScreen')}}>
             <View style={styles.textWrapper}>
-                <Text>{text}</Text>
+                <Text>{title}</Text>
             </View>
         </TouchableOpacity>
     )
