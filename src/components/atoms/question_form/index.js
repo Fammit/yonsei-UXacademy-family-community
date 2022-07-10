@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { getQuestion } from '../../../lib/family';
 
-function QuestionForm() {
+function QuestionForm({question}) {
+    //console.log('test', question);
+    
     return (
         <View style={styles.wrapper}>
-            <Text>질문</Text>
+            <Text style={styles.text}>{question}</Text>
         </View>
     );
 }
@@ -18,6 +21,10 @@ const styles = StyleSheet.create({
         borderRadius:20,
         backgroundColor:"#d3d3d3"
     },
+    text:{
+        fontSize:32,
+        fontWeight:'bold'
+    }
 })
 
 export default QuestionForm;

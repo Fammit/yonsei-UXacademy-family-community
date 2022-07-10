@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Fontisto';
 import {useNavigation} from '@react-navigation/native';
 
-function AlarmButton() {
+function NotificationButton() {
     const navigation = useNavigation();
 
     return (
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default AlarmButton;
+export default NotificationButton;

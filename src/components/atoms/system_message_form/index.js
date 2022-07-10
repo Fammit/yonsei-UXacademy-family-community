@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-function SystemMsgForm() {
+function SystemMsgForm({message}) {
     return (
         <TouchableOpacity>
             <View style={styles.wrapper}>
+                <Text>오늘의 추천 질문</Text>
+                <Text style={styles.text}>{message.contents}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -18,6 +20,10 @@ const styles = StyleSheet.create({
         marginHorizontal:20,
         borderRadius:20,
         backgroundColor:'grey'
+    },
+    text:{
+        fontSize:25,
+        fontWeight:'bold'
     }
 });
 

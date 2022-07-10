@@ -1,13 +1,11 @@
 import React,{useEffect, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native'
-import AlarmButton from './AlarmButton';
-import UploadButton from './UploadButton';
-import SettingButton from './SettingButton';
-import DropdownList from './DropdownList';
-import {useUserContext} from '../contexts/UserContext';
+import NotificationButton from '../../atoms/notification_button';
+import SettingButton from '../../atoms/setting_button';
+import DropdownList from '../../DropdownList';
+import {useUserContext} from '../../../contexts/UserContext';
 
-
-function FamilyImage() {
+function FamilyImageView() {
     const {user} = useUserContext();
     const today = new Date();
     const year = today.getFullYear();
@@ -25,7 +23,7 @@ function FamilyImage() {
             </View>
             <View style={styles.iconWrapper}>
                 <DropdownList/>
-                <AlarmButton/>
+                <NotificationButton/>
                 <SettingButton/>
             </View>
         </View>
@@ -57,4 +55,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FamilyImage;
+export default FamilyImageView;

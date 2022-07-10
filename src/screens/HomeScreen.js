@@ -1,20 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import FamilyImage from '../components/FamilyImage';
+import FamilyImageView from '../components/organisms/family_image_view';
+import SystemMsgForm from '../components/atoms/system_message_form';
 import UserProfileList from '../components/UserProfileList';
-import SystemMsgForm from '../components/SystemMsgForm';
-import { profile } from '../data/dummy';
+import { getSystemMsg } from '../lib/systemMessage';
 
 function HomeScreen() {
-    //가족 구성원 조회 API
-   
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        getSystemMsg().then(setMessage);
+    })
 
     return (
         <View style={styles.wrapper}>
             {/*백그라운드 이미지*/}
-            <FamilyImage/>
+            <FamilyImageView/>
             {/*시스템 메시지*/}
-            <SystemMsgForm/>
+            <SystemMsgForm message={message}/>
             {/*사용자 목록*/}
             <UserProfileList />
         </View>

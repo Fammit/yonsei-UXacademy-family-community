@@ -8,7 +8,7 @@ function UserProfile({text}) {
     return (
         <TouchableOpacity onPress={() => navigation.navigate('FeedScreen')}>
             <View style={styles.wrapper}>
-                <Text>{text}</Text>
+                <Text style={styles.text}>{text}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
         marginHorizontal:15,
         borderRadius:20,
         backgroundColor:'grey'
+    },
+    text:{
+        fontSize:34,
+        textAlign:'center'
     }
 })
 

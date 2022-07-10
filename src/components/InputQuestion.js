@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-function InputQuestion() {
+function InputQuestion({onChangeText}) {
   return <TextInput
+            placeholder='질문을 입력하세요'
+            onChangeText={onChangeText}
             style={styles.input}/>
 }
 const styles = StyleSheet.create({

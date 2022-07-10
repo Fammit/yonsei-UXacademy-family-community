@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import QuestionForm from '../../atoms/question_form';
-function AnsweredForm() {
+
+function AnsweredForm({question}) {
     return (
         <View style={styles.wrapper}>
             <View style={styles.block}>
-                <QuestionForm/>
+                <QuestionForm question={question}/>
             </View>
         </View>
     )

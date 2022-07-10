@@ -2,10 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { FlatList, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {signOut} from '../lib/auth';
 import {useUserContext} from '../contexts/UserContext';
-import ListItem from '../data/ListItem';
-import {getMember} from '../lib/users';
-import {getFamily} from '../lib/family';
-import {CheckBox} from 'react-native-elements';
 
 function MyProfileScreen() {
     const {setUser} = useUserContext();
