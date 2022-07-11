@@ -6,8 +6,11 @@ import LandingScreen from '../screens/LandingScreen';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import UploadQuestionScreen from '../screens/UploadQuestionScreen';
+import UploadAnswerScreen from '../screens/UploadAnswerScreen';
 import UploadDailyScreen from '../screens/UploadDailyScreen';
 import NotificationScreen from '../screens/NotificationScreen';
+import FeedScreen from '../screens/FeedScreen';
+
 import { useUserContext } from '../contexts/UserContext';
 import {getUser} from '../lib/users';
 import { subscribeAuth } from '../lib/auth';
@@ -40,6 +43,9 @@ function RootStack (){
                     <Stack.Screen name="UploadQuestionScreen" component={UploadQuestionScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="UploadDailyScreen" component={UploadDailyScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="NotificationScreen" component={NotificationScreen}/>
+                    <Stack.Screen name="UploadAnswerScreen" component={UploadAnswerScreen} options={{headerShown:false}}/>
+                    <Stack.Screen name="FeedScreen" component={FeedScreen} options={{headerShown:false}}/>
+
                 </>
             ) : (
                 <>

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, Modal } from 'react-native'
 import {useNavigation} from '@react-navigation/native';
-import UploadButton from '../../UploadButton';
 
 function UploadModal({visible, onClose}) {
     const navigation = useNavigation();

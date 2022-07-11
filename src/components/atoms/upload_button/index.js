@@ -3,7 +3,7 @@ import { TouchableOpacity, StyleSheet, Text, View, Platform } from 'react-native
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Fontisto';
-import UploadModal from './organisms/upload_modal';
+import UploadModal from '../../organisms/upload_modal';
 
 const TABBAR_HEIGHT=49;
 

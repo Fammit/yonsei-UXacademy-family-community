@@ -1,2 +1,2 @@
-export const colors = {}
-export const fonts = {}
+export const COLORS = {}
+export const FONTS = {}

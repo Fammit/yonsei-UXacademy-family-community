@@ -6,7 +6,7 @@ import HomeStack from '../stacks/HomeStack';
 import ChatStack from '../stacks/ChatStack';
 import StorageStack from '../stacks/StorageStack';
 import MyProfileStack from '../stacks/MyProfileStack';
-import UploadButton from '../components/UploadButton';
+import UploadButton from '../components/atoms/upload_button';
 
 const Tab = createBottomTabNavigator();
 

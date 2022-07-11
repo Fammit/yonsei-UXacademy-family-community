@@ -1,7 +1,8 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {Text} from 'react-native-paper'
 
 function SocialAuthButton({title, type}) {
     const navigation = useNavigation();
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize:16,
-        fontWeight:'bold'
+        fontFamily:'NotoSansKR-Bold'
     }
 });
 export default SocialAuthButton;
