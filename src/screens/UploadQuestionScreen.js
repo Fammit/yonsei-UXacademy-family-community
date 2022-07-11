@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import { StyleSheet,  View, Text, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import InputQuestion from '../components/InputQuestion';
+import QuestionInput from '../components/atoms/question_input';
 import MemberProfile from '../components/atoms/member_profile';
 import { useUserContext } from '../contexts/UserContext';
 import {createQuestion} from '../lib/family';
@@ -35,7 +35,7 @@ function UploadQuestionScreen() {
                 <View style={{marginLeft:20}}>
                     <Text>질문 작성하기</Text>
                 </View>
-                <InputQuestion onChangeText={setQuestion}/>
+                <QuestionInput onChangeText={setQuestion}/>
             </View>
             <View style={styles.footer}>
                 <Text>추천 질문이 필요한가요?</Text>

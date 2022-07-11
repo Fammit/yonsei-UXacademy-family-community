@@ -1,16 +1,18 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
-function SocialAuthButton({title}) {
+function SocialAuthButton({title, type}) {
     const navigation = useNavigation();
 
     return (
         <TouchableOpacity
             style={styles.button}
             onPress={() => {navigation.navigate('SignUpScreen')}}>
-            <View style={styles.textWrapper}>
-                <Text>{title}</Text>
+            <Icon name={type} size={30}/>
+            <View style={styles.wrapper}>
+                <Text style={styles.text}>{title}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -25,10 +27,15 @@ const styles = StyleSheet.create({
         borderRadius:25,
         marginHorizontal:15,
         marginVertical:10,
+        paddingLeft:30,
         backgroundColor:'grey',
     },
-    textWrapper:{
-        marginLeft:95
+    wrapper:{
+        marginLeft:80,
+    },
+    text:{
+        fontSize:16,
+        fontWeight:'bold'
     }
 });
 export default SocialAuthButton;

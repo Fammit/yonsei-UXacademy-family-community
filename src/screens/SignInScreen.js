@@ -62,7 +62,7 @@ function SignInScreen() {
                 </View>
             </View>
             <View style={styles.footer}>
-                <SocialAuthButton title="구글로 시작하기"/>
+                <SocialAuthButton title="구글로 시작하기" type="google"/>
                 <View style={styles.textForm}>
                     <Text style={{textAlign:'center'}}>아직 계정이 없으세요?</Text>
                     <TouchableOpacity

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-function InputQuestion({onChangeText}) {
+function QuestionInput({onChangeText}) {
   return <TextInput
             placeholder='질문을 입력하세요'
             onChangeText={onChangeText}
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default InputQuestion;
+export default QuestionInput;

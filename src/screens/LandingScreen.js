@@ -13,12 +13,13 @@ function LandingScreen() {
                     <Text style={styles.text}></Text>
                 </View>
                 <View style={styles.btnArea}>
-                    <SocialAuthButton title="이메일로 시작하기"/>
-                    <SocialAuthButton title="구글로 시작하기"/>
+                    <SocialAuthButton title="이메일로 시작하기" type='mail'/>
+                    <SocialAuthButton title="구글로 시작하기" type='google'/>
                     <View style={styles.textArea}>
+                        <Text>이미 계정이 있으신가요?</Text>
                         <TouchableOpacity
                             onPress = {() => navigation.navigate('SignInScreen')}>
-                            <Text style={{fontWeight:'bold'}}>로그인하기</Text>
+                            <Text style={{fontWeight:'bold', textDecorationLine:'underline'}}>로그인하기</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
