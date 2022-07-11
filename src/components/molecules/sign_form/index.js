@@ -6,11 +6,14 @@ function SignForm({form, createChangeTextHandler}) {
     return (
         <>
             <BorderedInput
+                placeholder="이메일"
                 value={form.email}
                 onChangeText={createChangeTextHandler('email')}/>
             <BorderedInput
+                placeholder="비밀번호"
                 value={form.password}
-                onChangeText={createChangeTextHandler('password')}/>
+                onChangeText={createChangeTextHandler('password')}
+                secureTextEntry/>
         </>
     )
 }

@@ -1,19 +1,32 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import React, {useRef} from 'react';
+import { TouchableOpacity, StyleSheet, View } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import UploadButton from '../components/UploadButton';
-import {Button, Menu, Divider, Provider} from 'react-native-paper';
-import Icon from 'react-native-vector-icons/Fontisto';
+
+import { Modal, Portal, Text, Button, Provider } from 'react-native-paper';
 
 function ChatScreen() {
-    
-    return (
-        <View>
-            
-        </View>
-    );   
-};
+    const navigation = useNavigation();
+    const [visible, setVisible] = React.useState(false);
 
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+  const containerStyle = {backgroundColor: 'white', padding: 20};
+   return(
+    <Provider>
+      <Portal>
+        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
+            <TouchableOpacity onPress={() => navigation.navigate('UploadQuestionScreen')}>
+                <Text>질문 올리기</Text>
+            </TouchableOpacity>
+        </Modal>
+      </Portal>
+      <UploadButton style={{marginTop: 30}} onPress={showModal}/>
+    </Provider>
+   )
+    
+};
+    
 const styles = StyleSheet.create({
     button:{
         width:56,

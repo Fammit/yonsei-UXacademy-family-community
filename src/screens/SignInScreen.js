@@ -5,6 +5,7 @@ import {
     Text, 
     View,
     Keyboard, 
+    Alert
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SignForm from '../components/molecules/sign_form';
@@ -43,8 +44,13 @@ function SignInScreen() {
             }
             //console.log("loginsuccess");
         } catch(e){
-            Alert.alert('로그인 실패');
-            //console.log(e);
+            const messages = {
+                'auth/user-not-found':'존재하지 않는 계정입니다.',
+                'auth/wrong-password':'잘못된 비밀번호입니다.',
+                'auth/invaild-email':'유효하지 않은 이메일 주소입니다.'
+            };
+            const msg = messages[e.code];
+            Alert.alert('로그인 실패', msg);
         }
     }
 

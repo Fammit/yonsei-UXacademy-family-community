@@ -1,12 +1,14 @@
 import React from 'react';
 import {TextInput, StyleSheet, Text, View } from 'react-native';
 
-function BorderedInput({value, onChangeText}) {
+function BorderedInput({placeholder, value, onChangeText, ...rest}) {
     return <TextInput
+                placeholder={placeholder}
                 value={value}
-                onChangeText={onChangeText}         
-                placeholder='textArea'
-                style={styles.input}/>
+                onChangeText={onChangeText}
+                {...rest}         
+                style={styles.input}
+                />
 }
 
 const styles = StyleSheet.create({

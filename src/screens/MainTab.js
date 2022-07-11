@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon  from 'react-native-vector-icons/Ionicons';
 import HomeStack from '../stacks/HomeStack';
@@ -11,6 +11,7 @@ import UploadButton from '../components/UploadButton';
 const Tab = createBottomTabNavigator();
 
 function MainTab() {
+
     return (
         <View style={styles.wrapper}>
             <Tab.Navigator 
