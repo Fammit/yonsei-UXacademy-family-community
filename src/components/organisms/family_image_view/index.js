@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react';
 import { StyleSheet, Text, View } from 'react-native'
 import NotificationButton from '../../atoms/notification_button';
 import SettingButton from '../../atoms/setting_button';
-import DropdownList from '../../DropdownList';
 import {useUserContext} from '../../../contexts/UserContext';
 
 function FamilyImageView() {
@@ -22,7 +21,6 @@ function FamilyImageView() {
                 <Text style={styles.dateText}>{formatted}</Text>
             </View>
             <View style={styles.iconWrapper}>
-                <DropdownList/>
                 <NotificationButton/>
                 <SettingButton/>
             </View>
@@ -47,7 +45,8 @@ const styles = StyleSheet.create({
     },
     titleText:{
         fontSize:40,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        fontFamily: 'NotoSansKR-Black'
     },
     dateText:{
         fontSize:16,

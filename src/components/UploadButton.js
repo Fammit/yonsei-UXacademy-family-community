@@ -1,14 +1,24 @@
 import React, {useState} from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { TouchableOpacity, StyleSheet, Text, View, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/Fontisto';
+
+const TABBAR_HEIGHT=49;
 
 function UploadButton({openMenu}) {
+    const insets = useSafeAreaInsets();
+
+    const bottom = Platform.select({
+        android: TABBAR_HEIGHT / 2,
+        ios: TABBAR_HEIGHT / 2 + insets.bottom - 4,
+    });
+
     return (
-        <View style={styles.wrapper}>
+        <View style={[styles.wrapper, {bottom}]}>
             <TouchableOpacity
-                style={styles.button}
+                style={styles.circle}
                 onPress={openMenu}>
-                <Icon name="plus-square-o" size={36}/>
+                <Icon name="plus-a" size={36}/>
             </TouchableOpacity>
         </View>
     )
@@ -16,11 +26,23 @@ function UploadButton({openMenu}) {
 
 const styles = StyleSheet.create({
     wrapper:{
+        zIndex:5,
+        position:'absolute',
+        left:'50%',
+        transform:[
+            {
+                translateX:-27
+            }
+        ],
+        borderRadius:27,
+        backgroundColor:'E1DDDD',
+        height:54,
+        width:54
     },
-    button:{
-        width:36,
-        height:56,
-        borderRadius:28,
+    circle:{
+        width:54,
+        height:54,
+        borderRadius:27,
         alignItems:'center',
         justifyContent:'center'
     }

@@ -6,6 +6,7 @@ import HomeStack from '../stacks/HomeStack';
 import ChatStack from '../stacks/ChatStack';
 import StorageStack from '../stacks/StorageStack';
 import MyProfileStack from '../stacks/MyProfileStack';
+import UploadButton from '../components/UploadButton';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,6 +47,7 @@ function MainTab() {
                             <Icon name="md-person-outline" size={24} color={color}/>
                     }}/>
             </Tab.Navigator>
+            <UploadButton/>
         </View>
     );
 }
