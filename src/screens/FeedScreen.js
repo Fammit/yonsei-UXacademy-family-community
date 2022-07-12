@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
 import FeedAnsweredView from '../components/organisms/feed_answered_view';
 import FeedContentsView from '../components/organisms/feed_contents_view';
 import {getQuestion} from '../lib/family';
+import {getPosts} from '../lib/posts';
 
 /* 
     사용자 정보
@@ -12,19 +13,26 @@ import {getQuestion} from '../lib/family';
     댓글
 */
 function FeedScreen() {
-    const [question, setQuestion] = useState('');
+    const [posts, setPosts] = useState(null);
 
-    //call API
     useEffect(() => {
-        getQuestion().then(setQuestion);
-    },[]);
+        getPosts().then(setPosts);
+    }, []);
+
     
     return (
-        <ScrollView style={styles.wrapper}>
-            <FeedAnsweredView question={question}/>
-            <FeedContentsView/>
-        </ScrollView>
+        <FlatList
+            data={posts}
+            renderItem={renderItem}
+            />
     )
+}
+
+const renderItem = ({item}) => {
+    return(
+        <FeedAnsweredView
+            photoURL={item.photoURL}/>
+    );
 }
 
 const styles = StyleSheet.create({

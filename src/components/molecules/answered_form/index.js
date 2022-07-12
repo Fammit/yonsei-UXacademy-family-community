@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import QuestionForm from '../../atoms/question_form';
 
-function AnsweredForm({question}) {
+function AnsweredForm({photoURL}) {
+    console.log('front:', photoURL)
+    
+    
     return (
         <View style={styles.wrapper}>
             <View style={styles.block}>
-                <QuestionForm question={question}/>
+                    <Image
+                        source={{uri: photoURL}}
+                        style={{width:'100%', aspectRatio:1, }}
+                        resizeMethod='resize'
+                        resizeMode='cover'/>
             </View>
         </View>
     )
