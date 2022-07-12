@@ -1,13 +1,21 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import {test} from '../lib/family';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import {createPost} from '../lib/posts';
 
 function StorageScreen() {
-    const [checked, setChecked] = useState(false);
+    const [test, setTest] = useState('');
+
+    const onSubmit = () => {
+        createPost({test});
+    }
 
     return (
         <View>
-            
+            <Text>test</Text>
+            <TextInput placeholder='test' value={test} onChangeText={setTest}/>
+            <TouchableOpacity onPress={onSubmit}>
+                <Text>submit</Text>
+            </TouchableOpacity>
         </View>
     );   
 };

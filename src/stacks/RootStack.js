@@ -10,6 +10,7 @@ import UploadAnswerScreen from '../screens/UploadAnswerScreen';
 import UploadDailyScreen from '../screens/UploadDailyScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import FeedScreen from '../screens/FeedScreen';
+import UploadScreen from '../screens/UploadScreen';
 
 import { useUserContext } from '../contexts/UserContext';
 import {getUser} from '../lib/users';
@@ -42,6 +43,7 @@ function RootStack (){
                     <Stack.Screen name="MainTab" component={MainTab} options={{headerShown:false}}/>
                     <Stack.Screen name="UploadQuestionScreen" component={UploadQuestionScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="UploadDailyScreen" component={UploadDailyScreen} options={{headerShown:false}}/>
+                    <Stack.Screen name="UploadScreen" component={UploadScreen} options={{title:'새 게시물', headerBackTitle:'뒤로가기'}}/>
                     <Stack.Screen name="NotificationScreen" component={NotificationScreen}/>
                     <Stack.Screen name="UploadAnswerScreen" component={UploadAnswerScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="FeedScreen" component={FeedScreen} options={{headerShown:false}}/>

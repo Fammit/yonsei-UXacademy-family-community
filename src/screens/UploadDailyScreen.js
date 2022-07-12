@@ -1,14 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity, Platform } from 'react-native';
+import {launchImageLibrary} from 'react-native-image-picker';
+import { useNavigation } from '@react-navigation/native';
 
-const UploadDailyScreen = () => {
+const imagePickerOption = {
+  mediaType : 'photo',
+  maxWidth : 768,
+  maxHeight : 768,
+  includeBase64 : Platform.OS === 'android'
+};
+
+function UploadDailyScreen() {
+  const navigation = useNavigation();
+
+  const onPickImage = (res) => {
+    if (res.didCancel || !res) {
+      return;
+    }
+    navigation.push('UploadScreen', {res});
+    console.log(res);
+  }
+
+  const onLaunchImageLibrary = () => {
+    launchImageLibrary(imagePickerOption, onPickImage);
+  }
+
   return (
-    <View>
-      <Text>UploadDailyScreen</Text>
-    </View>
+    <TouchableOpacity
+      onPress={onLaunchImageLibrary}>
+      <Text>이미지 업로드</Text>
+    </TouchableOpacity>
   )
 }
 
-export default UploadDailyScreen
-
 const styles = StyleSheet.create({})
+
+export default UploadDailyScreen;
