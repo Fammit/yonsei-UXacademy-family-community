@@ -12,6 +12,9 @@ function HomeScreen() {
         getSystemMsg().then(setMessage);
     })
 
+    //사용자 목록 컴포넌트 삭제
+    //답변 & 일상 post 컴포넌트 생성 --> Horizontal
+    //질문 카드 컴포넌트 생성 --> Vertical
     return (
         <View style={styles.wrapper}>
             {/*백그라운드 이미지*/}
