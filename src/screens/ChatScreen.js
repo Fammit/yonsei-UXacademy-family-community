@@ -31,7 +31,7 @@ function ChatScreen() {
         const fetchData = async () => {
             try {
                 const res = await getIsCreatedFamily(user.id);
-                setIsFamilyCreated(true);
+                setIsFamilyCreated(res);
             } catch(error) {
                 console.log(error);
             }

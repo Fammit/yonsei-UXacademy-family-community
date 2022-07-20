@@ -1,27 +1,53 @@
 import React, {useEffect, useState} from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import FamilyImageView from '../components/organisms/family_image_view';
-import SystemMsgForm from '../components/atoms/system_message_form';
+import { 
+    ScrollView, 
+    StyleSheet, 
+    View } 
+from 'react-native';
+import {Text} from 'react-native-paper';
+
 import { getSystemMsg } from '../lib/systemMessage';
 
+import FamilyImageView from '../components/organisms/family_image_view';
+import SystemMsgForm from '../components/atoms/system_message_form';
+import QuestionCard from '../components/molecules/question_card';
+
+import { getQuestion } from '../lib/question';
+import { getsIsQuestioned } from '../lib/question';
+
 function HomeScreen() {
-    const [message, setMessage] = useState('');
+    const [question, setQuestion] = useState([]);
+    const [isQuestioned, setIsQuestioned] = useState();    
 
     useEffect(() => {
-        getSystemMsg().then(setMessage);
-    })
+        const fetchData = async () => {
+            try {
+                const res = await getsIsQuestioned();
+                setIsQuestioned(res);
+            } catch(error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    },[]);
+    
+    
+    //console.log('FRONT DEBUG:', isQuestioned);
 
-    //사용자 목록 컴포넌트 삭제
-    //답변 & 일상 post 컴포넌트 생성 --> Horizontal
-    //질문 카드 컴포넌트 생성 --> Vertical
     return (
-        <View style={styles.wrapper}>
-            {/*백그라운드 이미지*/}
+        <ScrollView style={styles.wrapper}>
             <FamilyImageView/>
-            {/*시스템 메시지*/}
-            <SystemMsgForm message={message}/>
-            {/*사용자 목록*/}
-        </View>
+            <SystemMsgForm />
+            {!isQuestioned ? (
+                <View>
+                    <Text>아직 질문이 없습니다.</Text>
+                </View>
+            ) : (
+                <View>
+                    <QuestionCard/>
+                </View>
+            )}
+        </ScrollView>
     );   
 };
 

@@ -1,6 +1,4 @@
 import React, {useContext, createContext, useState} from 'react';
-import { Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/';
 
 const UserContext = createContext(null);
 

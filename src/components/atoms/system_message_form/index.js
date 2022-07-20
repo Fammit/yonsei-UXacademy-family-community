@@ -6,7 +6,7 @@ function SystemMsgForm({message}) {
         <TouchableOpacity>
             <View style={styles.wrapper}>
                 <Text>오늘의 추천 질문</Text>
-                <Text style={styles.text}>{message.contents}</Text>
+                <Text style={styles.text}></Text>
             </View>
         </TouchableOpacity>
     )

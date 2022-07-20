@@ -1,36 +1,52 @@
-import React,{useState} from 'react';
-import { StyleSheet,  View, Text, ScrollView, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import QuestionInput from '../components/atoms/question_input';
-import MemberProfile from '../components/atoms/member_profile';
+import React,{useState, useEffect} from 'react';
+import { 
+    StyleSheet,  
+    View, 
+    ScrollView, 
+    TouchableOpacity 
+} from 'react-native';
+import {Text} from 'react-native-paper'
+
 import { useUserContext } from '../contexts/UserContext';
-import {createQuestion} from '../lib/family';
+
+import { createQuestion } from '../lib/question';
+import { getAllUser } from '../lib/users';
+
+import UploadQuestionButton from '../components/atoms/upload_question_button';
+import QuestionUploadView from '../components/organisms/question_upload_view';
 
 function UploadQuestionScreen() {
     const {user} = useUserContext();
+    const [question, setQuestion] = useState('');
+    //구성원 전체 정보는 Context API로 전역 상태 관리 필요
+    const [member, setMember] = useState([]);
     
-    
+    //질문 등록 실행
+    const onQuestionSubmit = () => {
+        createQuestion({user, member, question})
+    }
+
+    //전체 사용자 데이터 요청 : array
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await getAllUser();
+                setMember(res);
+            } catch(error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <ScrollView style={styles.wrapper}>
             <View style={styles.header}>
                 <Text style={styles.text}>질문 올리기</Text>
-                <TouchableOpacity 
-                    style={styles.button}
-                >
-                    <Icon name="checkcircleo" size={30} />
-                </TouchableOpacity>
+                <UploadQuestionButton onQuestionSubmit={onQuestionSubmit}/>
             </View>
             <View style={styles.line}></View>
-            <View style={styles.form}>
-                <View>
-                    <Text style={{marginLeft:20}}>받는사람</Text>
-                    <MemberProfile/>
-                </View>
-                <View style={{marginLeft:20}}>
-                    <Text>질문 작성하기</Text>
-                </View>
-                <QuestionInput/>
-            </View>
+            <QuestionUploadView setQuestion={setQuestion}/>
             <View style={styles.footer}>
                 <Text>추천 질문이 필요한가요?</Text>
             </View>
@@ -45,10 +61,6 @@ const styles = StyleSheet.create({
     header:{
         alignItems:'center',
         marginVertical:15,
-    },
-    form:{
-        flex:1,
-        marginTop:20,
     },
     footer:{
         marginLeft:20,
@@ -65,11 +77,6 @@ const styles = StyleSheet.create({
         fontSize:25,
         fontWeight:'bold'
     },
-    button:{
-        position:'absolute',
-        marginTop:3,
-        right:30
-    }
 });
 
 export default UploadQuestionScreen;
