@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import FamilyImageView from '../components/organisms/family_image_view';
 import SystemMsgForm from '../components/atoms/system_message_form';
-import UserProfileList from '../components/UserProfileList';
 import { getSystemMsg } from '../lib/systemMessage';
 
 function HomeScreen() {
@@ -22,7 +21,6 @@ function HomeScreen() {
             {/*시스템 메시지*/}
             <SystemMsgForm message={message}/>
             {/*사용자 목록*/}
-            <UserProfileList />
         </View>
     );   
 };
