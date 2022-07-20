@@ -10,7 +10,7 @@ import { getSystemMsg } from '../lib/systemMessage';
 
 import FamilyImageView from '../components/organisms/family_image_view';
 import SystemMsgForm from '../components/atoms/system_message_form';
-import QuestionCard from '../components/molecules/question_card';
+import QuestionCardList from '../components/organisms/question_card_list';
 
 import { getQuestion } from '../lib/question';
 import { getsIsQuestioned } from '../lib/question';
@@ -35,7 +35,10 @@ function HomeScreen() {
     //console.log('FRONT DEBUG:', isQuestioned);
 
     return (
-        <ScrollView style={styles.wrapper}>
+        <ScrollView 
+            style={styles.wrapper}
+            nestedScrollEnabled={true}
+        >
             <FamilyImageView/>
             <SystemMsgForm />
             {!isQuestioned ? (
@@ -44,7 +47,7 @@ function HomeScreen() {
                 </View>
             ) : (
                 <View>
-                    <QuestionCard/>
+                    <QuestionCardList/>
                 </View>
             )}
         </ScrollView>
