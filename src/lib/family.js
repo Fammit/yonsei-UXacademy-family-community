@@ -2,34 +2,32 @@ import firestore from '@react-native-firebase/firestore';
 
 export const familyCollection = firestore().collection('family');
 
-//가족 구성원 정보 조회 API : READ
-export async function getMemberInfo(){
-    const snapshot = await familyCollection.doc('test').collection('users').get();
-    const member = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id
-    }))
-    //console.log('결과',member);
-    return member;
+//CREATE : 가족 생성 API
+//약식으로 초대 기능 구현하기 위해 작성 --> 초대 기능 활성화 시 해당 함수 전면 수정 혹은 삭제 필요
+export function createFamily({ familyId, id, info }) {
+    return familyCollection.doc('family1').collection('member').add({
+        familyId,
+        id,
+        info,
+        isFamilyCreated: true
+    });
 }
 
-//질문 생성 API : CREATE
-export async function createQuestion({user, question}) {
-    console.log('DEBUGTEST')
-    return familyCollection.doc('test').collection('question').doc('sample').set({
-        user,
-        question,
-        createdAt: firestore.FieldValue.serverTimestamp(),
-    })
+//READ: 모든 가족 생성 여부 조회 API
+//약식으로 초대 기능 구현하기 위해 작성 --> 초대 기능 활성화 시 해당 함수 전면 수정 혹은 삭제 필요
+export async function getIsCreatedFamily(id) {
+    const snapshot = await familyCollection.doc('family1').collection('members').where('id', '==', id).get();
+    const result = snapshot.docs.map((docs) => {
+        return docs.data().isFamilyCreated;
+    });
+    return result;
 }
 
-//질문 조회 API : READ
-export async function getQuestion(){
-    const snapshot = await familyCollection.doc('test').collection('question').get();
-    const question = snapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id
-    }))
-    const result = question[0].question;
+//READ: 가족 고유번호 조회 API
+export async function getFamilyId(id) {
+    const snapshot = await familyCollection.doc('family1').collection('members').where('id', '==', id).get();
+    const result = snapshot.docs.map((docs) => {
+        return docs.data().familyId;
+    });
     return result;
 }

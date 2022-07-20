@@ -8,13 +8,7 @@ import {createQuestion} from '../lib/family';
 
 function UploadQuestionScreen() {
     const {user} = useUserContext();
-    const [question, setQuestion] = useState('');
-
-    //질문 입력 실행 : API
-    //params : user, question
-    const onQuestionSubmit = () => {
-        createQuestion({user, question})
-    }
+    
     
     return (
         <ScrollView style={styles.wrapper}>
@@ -22,7 +16,7 @@ function UploadQuestionScreen() {
                 <Text style={styles.text}>질문 올리기</Text>
                 <TouchableOpacity 
                     style={styles.button}
-                    onPress={onQuestionSubmit}>
+                >
                     <Icon name="checkcircleo" size={30} />
                 </TouchableOpacity>
             </View>
@@ -35,7 +29,7 @@ function UploadQuestionScreen() {
                 <View style={{marginLeft:20}}>
                     <Text>질문 작성하기</Text>
                 </View>
-                <QuestionInput onChangeText={setQuestion}/>
+                <QuestionInput/>
             </View>
             <View style={styles.footer}>
                 <Text>추천 질문이 필요한가요?</Text>
