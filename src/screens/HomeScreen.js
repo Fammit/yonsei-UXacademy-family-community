@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { 
-    ScrollView, 
     StyleSheet, 
     View } 
 from 'react-native';
 import {Text} from 'react-native-paper';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import { getSystemMsg } from '../lib/systemMessage';
 
@@ -31,13 +31,9 @@ function HomeScreen() {
         fetchData();
     },[]);
     
-    
-    //console.log('FRONT DEBUG:', isQuestioned);
-
     return (
         <ScrollView 
             style={styles.wrapper}
-            nestedScrollEnabled={true}
         >
             <FamilyImageView/>
             <SystemMsgForm />
@@ -49,7 +45,7 @@ function HomeScreen() {
                 <View>
                     <QuestionCardList/>
                 </View>
-            )}
+            )}  
         </ScrollView>
     );   
 };

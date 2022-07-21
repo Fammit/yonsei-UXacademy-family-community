@@ -6,11 +6,14 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 
-function QuestionCard() {
+import MemberProfile from '../member_profile';
+
+function QuestionCard({info, questionId, question}) {
     return (
-        <View>
-            <TouchableOpacity style={[styles.card, styles.shadow]}>
-                <Text>card</Text>
+        <View style={[styles.card, styles.shadow]}>
+            <MemberProfile info={info}/>
+            <Text style={styles.text}>{question}</Text>
+            <TouchableOpacity>
             </TouchableOpacity>
         </View>
     )
@@ -20,21 +23,30 @@ const styles = StyleSheet.create({
     card:{
         flex:1,
         flexDirection:'row',
-        margin:5,
-        paddingVertical: 10,
+        alignItems:'center',
+        margin:10,
+        paddingVertical: 45,
         paddingHorizontal: 15,
-        borderRadius:5,
+        borderRadius:20,
         backgroundColor:'white'
+    },
+    text:{
+        fontFamily:'NotoSansKR-Bold',
+        fontSize:17,
+        marginBottom:1,
+        position:'absolute',
+        left:10,
+        bottom:1,
     },
     shadow:{
         shadowColor:'#000',
         shadowOffset:{
-            width:2,
-            height:2,
+            width:10,
+            height:10,
         },
-        shadowOpacity: 0.25,
+        shadowOpacity: 0.89,
         shadowRadius:3.84,
-        elevation:3,
+        elevation:5,
     }
 });
 

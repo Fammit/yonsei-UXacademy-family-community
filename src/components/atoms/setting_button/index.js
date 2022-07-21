@@ -6,7 +6,7 @@ function SettingButton() {
     return (
         <View style={styles.wrapper}>
             <TouchableOpacity>
-                <Icon name="dots-three-vertical" size={28} />
+                <Icon name="dots-three-horizontal" size={28} />
             </TouchableOpacity>
         </View>
     )
@@ -15,6 +15,7 @@ function SettingButton() {
 const styles = StyleSheet.create({
     wrapper:{
         margin:15,
+        marginBottom:6,
         marginRight:3
     }
 });

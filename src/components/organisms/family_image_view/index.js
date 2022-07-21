@@ -19,13 +19,11 @@ function FamilyImageView() {
     return (
         <View style={styles.wrapper}>
             <View style={styles.textWrapper}>
-                <Text>{user.info}</Text>
-                <Text style={styles.titleText}>Text Area</Text>
-                <Text style={styles.dateText}>{formatted}</Text>
+                <Text style={styles.titleText}>{user.info}네{"\n"}행복한 집</Text>
             </View>
             <View style={styles.iconWrapper}>
-                <NotificationButton/>
                 <SettingButton/>
+                <NotificationButton/>
             </View>
         </View>
     );
@@ -33,13 +31,13 @@ function FamilyImageView() {
 
 const styles = StyleSheet.create({
     wrapper:{
-        height:195
+        height:155,
     },
     textWrapper:{
         position:"absolute",
-        top:80,
+        top:50,
         padding:5,
-        marginLeft:20
+        marginLeft:15,
     },
     iconWrapper:{
         flexDirection:"row",
@@ -47,7 +45,7 @@ const styles = StyleSheet.create({
         right:10,
     },
     titleText:{
-        fontSize:40,
+        fontSize:35,
         fontWeight:'bold',
         fontFamily: 'NotoSansKR-Black'
     },

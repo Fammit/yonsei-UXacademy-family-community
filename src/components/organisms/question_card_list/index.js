@@ -1,41 +1,58 @@
-import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import { StyleSheet, View, FlatList } from 'react-native';
+import {Text} from 'react-native-paper';
+
+import { useUserContext } from '../../../contexts/UserContext';
+
+import { getQuestion } from '../../../lib/question';
+
 import QuestionCard from '../../atoms/question_card';
-
-const data = [
-    {
-        id:0,
-        info: '현지',
-        question: '뭐해요?'
-    },
-    {   
-        id:1,
-        info: '아빠',
-        question: '뭐해?'
-    },
-
-]
 
 const renderItem = ({item}) => {
     return(
         <View>
-            <QuestionCard/>
-        </View>
+            <QuestionCard 
+                info={item.from.info}
+                questionId={item.questionId}
+                question={item.question}
+            />
+        </View> 
     )
 }
 
 function QuestionCardList() {
+    const {user} = useUserContext();
+    const [question, setQuestion] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await getQuestion(user.id);
+                setQuestion(res);
+            } catch(error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, [question]);
+
     return (
-        <View>
+        <View style={styles.wrapper}>
+            <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문</Text>
             <FlatList
-                data={data}
+                data={question}
                 renderItem={renderItem}
-                keyExtractor={item => `${item.id}`}
+                keyExtractor={item => `${item.questionId}`}
             />
         </View>
     )
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    wrapper:{
+        marginTop:15,
+        marginHorizontal:15,
+    }
+});
 
 export default QuestionCardList;
