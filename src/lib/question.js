@@ -27,7 +27,8 @@ export function createQuestion({user, member, question}) {
         },
         questionId: questionDocId,
         question: question,
-        check
+        check,
+        createdAt: firestore.FieldValue.serverTimestamp(),
     });
 }
 /** 
@@ -39,7 +40,7 @@ export function createQuestion({user, member, question}) {
 */
 
 export async function getQuestion(id){
-    const snapshot = await interactionCollection.get()
+    const snapshot = await interactionCollection.orderBy('createdAt', 'desc').get()
     const result = snapshot.docs.filter((item) => {
         return item.data().from.id != id 
     }).map((item) => {

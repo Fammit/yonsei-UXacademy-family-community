@@ -1,24 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import { 
-    StyleSheet, 
+    StyleSheet,
     View } 
 from 'react-native';
 import {Text} from 'react-native-paper';
 import { ScrollView } from 'react-native-gesture-handler';
 
-import { getSystemMsg } from '../lib/systemMessage';
-
 import FamilyImageView from '../components/organisms/family_image_view';
 import SystemMsgForm from '../components/atoms/system_message_form';
 import QuestionCardList from '../components/organisms/question_card_list';
 
-import { getQuestion } from '../lib/question';
 import { getsIsQuestioned } from '../lib/question';
 
 function HomeScreen() {
-    const [question, setQuestion] = useState([]);
     const [isQuestioned, setIsQuestioned] = useState();    
 
+    //최초 사용 시 질문 내역 여부 확인 요청
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -39,6 +36,7 @@ function HomeScreen() {
             <SystemMsgForm />
             {!isQuestioned ? (
                 <View>
+                    <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문</Text>
                     <Text>아직 질문이 없습니다.</Text>
                 </View>
             ) : (
@@ -55,6 +53,10 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:'white'
     },
+    list:{
+        marginTop:15,
+        marginHorizontal:15,
+    }
 });
 
 export default HomeScreen;

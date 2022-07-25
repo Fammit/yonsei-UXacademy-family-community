@@ -12,9 +12,11 @@ const renderItem = ({item}) => {
     return(
         <View>
             <QuestionCard 
-                info={item.from.info}
+                key={item.questionId}
                 questionId={item.questionId}
+                info={item.from.info}
                 question={item.question}
+                createdAt={item.createdAt}
             />
         </View> 
     )
@@ -34,7 +36,7 @@ function QuestionCardList() {
             }
         };
         fetchData();
-    }, [question]);
+    }, []);
 
     return (
         <View style={styles.wrapper}>

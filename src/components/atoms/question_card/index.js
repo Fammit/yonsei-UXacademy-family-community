@@ -6,15 +6,25 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 
-import MemberProfile from '../member_profile';
+import { format } from 'date-fns';
+import {useNavigation} from '@react-navigation/native';
 
-function QuestionCard({info, questionId, question}) {
+import { formatDate } from '../../../constant/date';
+import { useUserContext } from '../contexts/UserContext';
+
+import MemberProfile from '../member_profile';
+import AnswerButton from '../answer_button';
+
+function QuestionCard({questionId, info, question, createdAt}) {
+    const navigation = useNavigation();
     return (
         <View style={[styles.card, styles.shadow]}>
             <MemberProfile info={info}/>
             <Text style={styles.text}>{question}</Text>
-            <TouchableOpacity>
-            </TouchableOpacity>
+            <Text style={styles.time}>{formatDate(new Date(createdAt.seconds*1000))}</Text>
+            <AnswerButton
+                onPress={() => navigation.navigate('UploadAnswerScreen', {key: questionId})}
+            />
         </View>
     )
 }
@@ -31,12 +41,18 @@ const styles = StyleSheet.create({
         backgroundColor:'white'
     },
     text:{
-        fontFamily:'NotoSansKR-Bold',
         fontSize:17,
-        marginBottom:1,
+        marginBottom:5,
         position:'absolute',
         left:10,
         bottom:1,
+    },
+    time:{
+        position:'absolute',
+        right:10,
+        top:10,
+        marginRight:20,
+        marginBottom:10
     },
     shadow:{
         shadowColor:'#000',
