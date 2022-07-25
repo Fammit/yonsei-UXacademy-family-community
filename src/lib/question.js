@@ -46,7 +46,6 @@ export async function getQuestion(id){
     }).map((item) => {
         return item.data();
     });
-    console.log('BACKDEBUG:', result);
     return result;
 }
 

@@ -10,12 +10,13 @@ import {
 import { useUserContext } from '../contexts/UserContext';
 import { useRoute } from '@react-navigation/native';
 
+import { getIsAnswered } from '../lib/answer';
+
 import { createAnswer } from '../lib/answer';
-import { getAllUser } from '../lib/users';
 
 function UploadAnswerScreen() {
     const [answer, setAnswer] = useState('');
-    const [member, setMember] = useState([]);
+    const [isAnswered, setIsAnswered] = useState([]);
     
     const {user} = useUserContext();
     
@@ -23,21 +24,20 @@ function UploadAnswerScreen() {
     const questionDocId= route.params.key
     
     const onAnswerSubmit = () => {
-        createAnswer({user, member, answer, questionDocId})
+        createAnswer({user, member, isAnswered, answer, questionDocId})
     }
-
-    //전체 사용자 데이터 요청 : array
+    
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const res = await getAllUser();
-                setMember(res);
+            try{
+                const res = await getIsAnswered({questionDocId})
+                setIsAnswered(res);    
             } catch(error) {
                 console.log(error);
-            }
+            }  
         };
         fetchData();
-    }, []);
+    },[])
 
     return (
         <View>
