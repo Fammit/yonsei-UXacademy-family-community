@@ -31,6 +31,7 @@ export function createQuestion({user, member, question}) {
         createdAt: firestore.FieldValue.serverTimestamp(),
     });
 }
+
 /** 
     READ: 질문 조회를 위한 firestore API
     * 현재 로그인한 사용자가 보낸 질문은 자신의 홈화면에서 확인할 수 없음
@@ -38,7 +39,6 @@ export function createQuestion({user, member, question}) {
     @params {string} id: 현재 로그인한 사용자 고유 식별 번호
     @return 데이터베이스에서 조건에 부합하는 질문 리스트
 */
-
 export async function getQuestion(id){
     const snapshot = await interactionCollection.orderBy('createdAt', 'desc').get()
     const result = snapshot.docs.filter((item) => {
@@ -62,3 +62,36 @@ export async function getsIsQuestioned(){
     }
     return true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export async function test(id){
+//     const snapshot = await interactionCollection.orderBy('createdAt', 'desc').get()
+//     const result = snapshot.docs.filter((item) => {
+//         return item.data().from.id != id 
+//     }).map((item) => {
+//         return item.data();
+//     });
+//     const x = result.map((item) => {
+//         return item.check
+//     })
+//     console.log('출력결과:', x);
+//     //return result;
+// }
+
+
+
+
+

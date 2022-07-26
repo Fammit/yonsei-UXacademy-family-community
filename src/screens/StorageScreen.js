@@ -1,21 +1,16 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import {createPost} from '../lib/posts';
+
+import {test} from '../lib/question';
+import {useUserContext} from '../contexts/UserContext';
+
 
 function StorageScreen() {
-    const [test, setTest] = useState('');
-
-    const onSubmit = () => {
-        createPost({test});
-    }
-
+    // const {user} = useUserContext();
+    // test(user.id)
     return (
         <View>
-            <Text>test</Text>
-            <TextInput placeholder='test' value={test} onChangeText={setTest}/>
-            <TouchableOpacity onPress={onSubmit}>
-                <Text>submit</Text>
-            </TouchableOpacity>
+            <Text>hello</Text>
         </View>
     );   
 };

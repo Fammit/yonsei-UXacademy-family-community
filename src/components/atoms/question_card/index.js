@@ -2,7 +2,8 @@ import React from 'react';
 import { 
     StyleSheet, 
     View, 
-    TouchableOpacity 
+    TouchableOpacity,
+    Dimensions 
 } from 'react-native';
 import {Text} from 'react-native-paper';
 
@@ -15,12 +16,17 @@ import { useUserContext } from '../contexts/UserContext';
 import MemberProfile from '../member_profile';
 import AnswerButton from '../answer_button';
 
+const {height, width} = Dimensions.get('screen');
+
 function QuestionCard({questionId, info, question, createdAt}) {
     const navigation = useNavigation();
+
     return (
         <View style={[styles.card, styles.shadow]}>
             <MemberProfile info={info}/>
-            <Text style={styles.text}>{question}</Text>
+            <View style={styles.textWrapper}>
+                <Text numberOfLines={2} style={styles.text}>{question}</Text>
+            </View>
             <Text style={styles.time}>{formatDate(new Date(createdAt.seconds*1000))}</Text>
             <AnswerButton
                 onPress={() => navigation.navigate('UploadAnswerScreen', {key: questionId})}
@@ -35,19 +41,24 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         margin:10,
-        paddingVertical: 45,
+        paddingVertical: 55,
         paddingHorizontal: 15,
         borderRadius:20,
         backgroundColor:'white'
     },
-    text:{
-        fontSize:17,
+    textWrapper:{
         marginBottom:5,
         position:'absolute',
         left:10,
         bottom:1,
     },
+    text:{
+        fontSize:14,
+        maxWidth:width/2
+    },
     time:{
+        color:'#8A8686',
+        fontWeight:'bold',
         position:'absolute',
         right:10,
         top:10,

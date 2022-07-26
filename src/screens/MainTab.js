@@ -18,11 +18,12 @@ function MainTab() {
                 screenOptions={{
                     headerShown: false,
                     tabBarShowLabel: false,
-                    tabBarActiveTintColor: 'black'}}>
+                    tabBarActiveTintColor: '#FFC149'}}>
                 <Tab.Screen
                     name="HomeStack"
                     component={HomeStack}
                     options={{
+                        title:'홈',
                         tabBarIcon: ({color}) => 
                             <Icon name="home-outline" size={24} color={color}/>
                     }} />

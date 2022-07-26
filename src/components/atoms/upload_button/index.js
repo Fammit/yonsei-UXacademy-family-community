@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import { TouchableOpacity, StyleSheet, Text, View, Platform } from 'react-native';
+import { 
+    TouchableOpacity, 
+    StyleSheet,
+    Image, 
+    Text, 
+    View, 
+    Platform 
+} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/Fontisto';
@@ -24,7 +31,9 @@ function UploadButton({onPress}) {
                 <TouchableOpacity
                     style={styles.circle}
                     onPress={() => setModalVisible(true)}>
-                    <Icon name="plus-a" size={36}/>
+                    <Image
+                        source={require('../../../assets/icons/upload-plus.png')}
+                    />
                 </TouchableOpacity>
             </View>
             <UploadModal
@@ -45,7 +54,7 @@ const styles = StyleSheet.create({
             }
         ],
         borderRadius:27,
-        backgroundColor:'gray',
+        backgroundColor:'#FFC149',
         height:50,
         width:50
     },

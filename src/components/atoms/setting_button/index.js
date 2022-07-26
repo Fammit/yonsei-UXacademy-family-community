@@ -1,12 +1,14 @@
 import React from 'react';
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, View, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 
 function SettingButton() {
     return (
         <View style={styles.wrapper}>
             <TouchableOpacity>
-                <Icon name="dots-three-horizontal" size={28} />
+                <Image
+                    source={require('../../../assets/icons/icon-dots.png')}
+                />
             </TouchableOpacity>
         </View>
     )

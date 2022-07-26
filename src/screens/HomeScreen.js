@@ -33,7 +33,6 @@ function HomeScreen() {
             style={styles.wrapper}
         >
             <FamilyImageView/>
-            <SystemMsgForm />
             {!isQuestioned ? (
                 <View>
                     <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문</Text>
