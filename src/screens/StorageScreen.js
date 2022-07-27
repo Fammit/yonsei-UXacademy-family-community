@@ -6,8 +6,6 @@ import {useUserContext} from '../contexts/UserContext';
 
 
 function StorageScreen() {
-    // const {user} = useUserContext();
-    // test(user.id)
     
     return (
         <View>

@@ -3,6 +3,7 @@ import {v4 as uuidv4} from 'uuid';
 
 export const interactionCollection = firestore().collection('family').doc('family1').collection('interaction');
 
+
 /** 
     CREATE: 질문 생성을 위한 firestore API
     * temp  check를 생성하기 위한 임시 변수
