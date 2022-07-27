@@ -24,7 +24,7 @@ function UploadAnswerScreen() {
     const questionDocId= route.params.key
     
     const onAnswerSubmit = () => {
-        createAnswer({user, member, isAnswered, answer, questionDocId})
+        createAnswer({user, isAnswered, answer, questionDocId})
     }
     
     useEffect(() => {

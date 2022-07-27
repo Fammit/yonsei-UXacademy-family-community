@@ -12,6 +12,7 @@ import {useUserContext} from '../../../contexts/UserContext';
 
 import NotificationButton from '../../atoms/notification_button';
 import SettingButton from '../../atoms/setting_button';
+import AnswerCardHorizontalList from '../answer_card_horizontal_list';
 
 function FamilyImageView() {
     const {user} = useUserContext();
@@ -28,12 +29,10 @@ function FamilyImageView() {
 
     return (
         <>
-            <View style={[styles.statusBarPlaceholder, {height: top}]}/>
-            <StatusBar backgroundColor='#FCCD72'/>
             <View style={styles.wrapper}>
                 <View style={styles.textWrapper}>
                     <Text>{formatted}</Text>
-                    <Text style={styles.titleText}>오늘 우리가족의{"\n"}일상을 확인해보세요</Text>
+                    <Text style={styles.titleText}>오늘 우리가족의{"\n"}일상을 확인해보세요🏡</Text>
                 </View>
                 <View style={styles.image}>
                     <Image
@@ -44,6 +43,7 @@ function FamilyImageView() {
                     <SettingButton/>
                     <NotificationButton/>
                 </View>
+                <AnswerCardHorizontalList/>
             </View>
         </>
     );
@@ -51,13 +51,10 @@ function FamilyImageView() {
 
 const styles = StyleSheet.create({
     statusBarPlaceholder:{
-        backgroundColor:'#FCCD72'
+        backgroundColor:'white'
     },
     wrapper:{
-        height:350,
-        backgroundColor:'#FCCD72',
-        borderBottomLeftRadius:180,
-        borderBottomRightRadius:180,
+        height:400,
     },
     textWrapper:{
         position:"absolute",

@@ -15,9 +15,10 @@ function MainTab() {
     return (
         <View style={styles.wrapper}>
             <Tab.Navigator 
+                initialRouteName='HomeStack'
                 screenOptions={{
                     headerShown: false,
-                    tabBarShowLabel: false,
+                    tabBarLabelStyle:'',
                     tabBarActiveTintColor: '#FFC149'}}>
                 <Tab.Screen
                     name="HomeStack"
@@ -31,6 +32,7 @@ function MainTab() {
                     name="ChatStack"
                     component={ChatStack}
                     options={{
+                        title:'채팅방',
                         tabBarIcon: ({color}) => 
                             <Icon name="chatbubble-outline" size={24} color={color}/>
                     }}/>
@@ -38,6 +40,7 @@ function MainTab() {
                     name="StorageStack"
                     component={StorageStack}
                     options={{
+                        title:'보관함',
                         tabBarIcon: ({color}) => 
                             <Icon name="md-folder-outline" size={24} color={color}/>
                     }}/>
@@ -45,6 +48,7 @@ function MainTab() {
                     name="MyProfileStack"
                     component={MyProfileStack}
                     options={{
+                        title:'마이페이지',
                         tabBarIcon: ({color}) => 
                             <Icon name="md-person-outline" size={24} color={color}/>
                     }}/>

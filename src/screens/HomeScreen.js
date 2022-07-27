@@ -35,7 +35,7 @@ function HomeScreen() {
             <FamilyImageView/>
             {!isQuestioned ? (
                 <View>
-                    <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문</Text>
+                    <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
                     <Text>아직 질문이 없습니다.</Text>
                 </View>
             ) : (
