@@ -5,7 +5,7 @@ import {Text} from 'react-native-paper'
 function UploadQuestionInput({setQuestion}) {
     return (
         <View style={styles.wrapper}>
-            <Text>질문 작성하기</Text>
+            <Text style={{fontFamily:'NotoSansKR-Bold', fontSize:16}}>질문 작성하기</Text>
             <TextInput
                 onChangeText={setQuestion}
                 placeholder='질문을 입력하세요'
@@ -17,17 +17,18 @@ function UploadQuestionInput({setQuestion}) {
 
 const styles = StyleSheet.create({
     wrapper:{
+        marginTop:60,
         marginLeft:20
     },
     input:{
         marginHorizontal:20,
         marginLeft:3,
-        marginTop:10,
-        height:83,
+        marginTop:2,
+        height:153,
         borderRadius:20,
-        borderWidth:1,
-        borderColor:'black',
-        backgroundColor:'grey'
+        borderWidth:2,
+        borderColor:'#FFC149',
+        textAlignVertical:'top'
     }
 
 })

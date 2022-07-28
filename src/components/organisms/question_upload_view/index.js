@@ -15,7 +15,7 @@ function QuestionUploadView({setQuestion}) {
 const styles = StyleSheet.create({
     form:{
         flex:1,
-        marginTop:20,
+        marginTop:50,
     },
 })
 

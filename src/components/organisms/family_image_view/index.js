@@ -32,7 +32,14 @@ function FamilyImageView() {
             <View style={styles.wrapper}>
                 <View style={styles.textWrapper}>
                     <Text>{formatted}</Text>
-                    <Text style={styles.titleText}>오늘 우리가족의{"\n"}일상을 확인해보세요🏡</Text>
+                    <Text>
+                        <Text style={styles.titleText}>오늘</Text>
+                        <Text style={[styles.titleText, {color:'#F2AC43'}]}>우리 가족의</Text>
+                    </Text>
+                    <Text>
+                        <Text style={[styles.titleText, {color:'#F2AC43'} ]}>일상</Text>
+                        <Text style={styles.titleText}>을 확인해보세요🏡</Text>
+                    </Text>
                 </View>
                 <View style={styles.image}>
                     <Image

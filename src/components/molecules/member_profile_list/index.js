@@ -7,8 +7,15 @@ import MemberProfile from '../../atoms/member_profile';
 function MemberProfileList() {
     return (
         <View>
-            <Text style={{marginLeft:20}}>받는 사람</Text>
-            <MemberProfile/>
+            <Text 
+                style={{
+                    marginLeft:20,
+                    fontFamily:'NotoSansKR-Bold',
+                    fontSize:16
+                    }}>
+                    질문 받는 사람
+            </Text>
+            {/* <MemberProfile/> */}
         </View>
     )
 }

@@ -18,12 +18,12 @@ import AnswerButton from '../answer_button';
 
 const {height, width} = Dimensions.get('screen');
 
-function QuestionCard({questionId, info, question, createdAt}) {
+function QuestionCard({questionId, info, photoURL, question, createdAt}) {
     const navigation = useNavigation();
 
     return (
         <View style={[styles.card, styles.shadow]}>
-            <MemberProfile info={info}/>
+            <MemberProfile info={info} photoURL={photoURL}/>
             <View style={styles.textWrapper}>
                 <Text numberOfLines={2} style={styles.text}>{question}</Text>
             </View>

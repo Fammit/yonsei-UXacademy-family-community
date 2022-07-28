@@ -5,8 +5,7 @@ import {
     ScrollView, 
     TouchableOpacity 
 } from 'react-native';
-import {Text} from 'react-native-paper'
-
+import {Text, Divider} from 'react-native-paper'
 import { useUserContext } from '../contexts/UserContext';
 
 import { createQuestion } from '../lib/question';
@@ -14,6 +13,7 @@ import { getAllUser } from '../lib/users';
 
 import UploadQuestionButton from '../components/atoms/upload_question_button';
 import QuestionUploadView from '../components/organisms/question_upload_view';
+import SystemMessageView from '../components/organisms/system_message_view';
 
 function UploadQuestionScreen() {
     const {user} = useUserContext();
@@ -41,6 +41,9 @@ function UploadQuestionScreen() {
 
     return (
         <ScrollView style={styles.wrapper}>
+            <QuestionUploadView setQuestion={setQuestion}/>
+            <View style={{ marginTop:30, borderBottomColor:'#FAF8F4', borderBottomWidth:10}}/>
+            <SystemMessageView/>
             {/* <View style={styles.line}></View>
             <QuestionUploadView setQuestion={setQuestion}/>
                 <UploadQuestionButton onQuestionSubmit={onQuestionSubmit}/>

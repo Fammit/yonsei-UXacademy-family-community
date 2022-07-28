@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { 
     StyleSheet,
+    StatusBar,
     View } 
 from 'react-native';
 import {Text} from 'react-native-paper';
@@ -29,21 +30,24 @@ function HomeScreen() {
     },[]);
     
     return (
-        <ScrollView 
-            style={styles.wrapper}
-        >
-            <FamilyImageView/>
-            {!isQuestioned ? (
-                <View>
-                    <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
-                    <Text>아직 질문이 없습니다.</Text>
-                </View>
-            ) : (
-                <View>
-                    <QuestionCardList/>
-                </View>
-            )}  
-        </ScrollView>
+        <>
+            <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'}/>
+            <ScrollView 
+                style={styles.wrapper}
+            >
+                <FamilyImageView/>
+                {!isQuestioned ? (
+                    <View>
+                        <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
+                        <Text>아직 질문이 없습니다.</Text>
+                    </View>
+                ) : (
+                    <View>
+                        <QuestionCardList/>
+                    </View>
+                )}  
+            </ScrollView>
+        </>
     );   
 };
 

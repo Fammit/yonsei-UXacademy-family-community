@@ -15,6 +15,7 @@ const renderItem = ({item}) => {
                 key={item.questionId}
                 questionId={item.questionId}
                 info={item.from.info}
+                photoURL={item.from.photoURL}
                 question={item.question}
                 createdAt={item.createdAt}
             />

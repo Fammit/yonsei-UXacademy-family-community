@@ -24,7 +24,8 @@ export function createQuestion({user, member, question}) {
     return interactionCollection.doc(questionDocId).set({
         from:{
             id: user.id,
-            info: user.info
+            info: user.info,
+            photoURL: user.photoURL
         },
         questionId: questionDocId,
         question: question,

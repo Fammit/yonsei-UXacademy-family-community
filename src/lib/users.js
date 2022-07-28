@@ -3,10 +3,11 @@ import firestore from '@react-native-firebase/firestore';
 export const usersCollection = firestore().collection('users');
 
 //CREATE: 회원가입한 사용자 정보 저장 API
-export function createUser({id, info}){
+export function createUser({id, info, photoURL}){
     return usersCollection.doc(id).set({
         id,
-        info
+        info,
+        photoURL
     });
 }
 

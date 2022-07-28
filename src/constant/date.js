@@ -15,4 +15,24 @@ export function formatDate(date){
     return format(d,'PPP EEE p', {locale: ko});
 }
 
+const dummyData = [
+    {
+        menu:[
+            {
+                id:1,
+                info:'kimchi',
+                list:[
+                    {
+                        categoryId:1,
+                        info:'vegi'
+                    }
+                ]
+            },
+            {
+                id:2,
+                info:'gogi'
+            }
+        ]
+    }
+]
 
