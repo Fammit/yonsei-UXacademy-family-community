@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import {Text} from 'react-native-paper';
 import {ActivityIndicator, MD2Colors} from 'react-native-paper';
 
 import {useNavigation} from '@react-navigation/native';
@@ -22,7 +23,7 @@ function AuthSubmitButton({title, onRegisterSubmit, onSignInSubmit, isSignUp, lo
                 style={styles.wrapper}
                 onPress={isSignUp ? onRegisterSubmit : onSignInSubmit}
                 >
-                <Text>{title}</Text>
+                <Text style={{fontFamily:"NotoSansKR-Bold"}}>{title}</Text>
             </TouchableOpacity>
     )
 }
@@ -32,9 +33,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         height:48,
-        borderWidth:1,
         borderRadius:20,
-        backgroundColor:'grey'
+        backgroundColor:'#FCCD72'
     },
     spinnerWrapper:{
         position: 'absolute', 

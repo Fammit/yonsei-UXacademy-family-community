@@ -47,7 +47,6 @@ function SignInScreen() {
             }else{
                 setUser(profile);
             }
-            //console.log("loginsuccess");
         } catch(e){
             const messages = {
                 'auth/user-not-found':'존재하지 않는 계정입니다.',
@@ -65,17 +64,17 @@ function SignInScreen() {
         <View style={styles.wrapper}>
             <View style={styles.form}>
                 <SignForm form={form} createChangeTextHandler={createChangeTextHandler}/>
-                {/* <View style={styles.button}>
+                <View style={styles.button}>
                     <AuthSubmitButton 
                         title="로그인"
                         onSignInSubmit={onSignInSubmit}
                         isSignUp={isSignUp}
                         loading={loading}
                     />
-                </View> */}
+                </View>
             </View>
             <View style={styles.footer}>
-                <SocialAuthButton title="구글 아이디로 로그인" type="google"/>
+                <SocialAuthButton title="구글 아이디로 로그인" type="google" check={true}/>
                 <View style={styles.textForm}>
                     <Text style={{textAlign:'center'}}>아직 계정이 없으신가요?</Text>
                     <TouchableOpacity
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:26,
     },
     footer:{
-        marginTop:210,
+        marginTop:140,
     },
     button:{
         marginTop:34,

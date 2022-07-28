@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Image} from 'react-native';
 import {Text} from 'react-native-paper';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/native';
 
 import WelcomeScreen from '../screens/WelcomeScreen';
 import MainTab from '../screens/MainTab';
@@ -24,7 +25,8 @@ const Stack = createNativeStackNavigator();
 
 function RootStack (){
     const {user, setUser} = useUserContext();
-
+    const navigation = useNavigation();
+    
     //로그인 상태 유지
     useEffect(() => {
         const unsubscribe = subscribeAuth(async currentUser => {
@@ -89,7 +91,7 @@ function RootStack (){
                             headerBackVisible:false,
                             headerTitleAlign:'center',
                             headerLeft: ({onPress}) => (
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
                                     <Text style={{
                                         fontSize:17,
                                         fontFamily:'NotoSansKR-Bold'
@@ -104,17 +106,32 @@ function RootStack (){
                                     }}>로그인</Text>
                                 </View>
                             ),
-                            headerRight: ({onPress}) => (
-                                <TouchableOpacity>
+                        }}
+                    />
+                    <Stack.Screen 
+                        name="SignUpScreen" 
+                        component={SignUpScreen} 
+                        options={{
+                            headerTransparent:true,
+                            headerBackVisible:false,
+                            headerTitleAlign:'center',
+                            headerLeft: ({onPress}) => (
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
                                     <Text style={{
                                         fontSize:17,
                                         fontFamily:'NotoSansKR-Bold'
-                                    }}>다음</Text>
+                                    }}>취소</Text>
                                 </TouchableOpacity>
                             ),
-                        }}
-                    />
-                    <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{headerShown:false}}/>
+                            headerTitle:() => (
+                                <View>
+                                    <Text style={{
+                                        fontSize:23,
+                                        fontFamily:'NotoSansKR-Bold'
+                                    }}>회원가입</Text>
+                                </View>
+                            ),
+                        }}/>
                     <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{headerShown:false}}/>
                 </>
             )}

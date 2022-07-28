@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { 
   StyleSheet, 
-  Text, 
   View,
   Keyboard,
   Alert
 } from 'react-native';
+import {Text} from 'react-native-paper';
+
 import BorderedInput from '../components/atoms/bordered_input';
 import AuthSubmitButton from '../components/atoms/auth_submit_button';
+
 import {signUp} from '../lib/auth';
 
 function SignUpScreen() {
@@ -40,12 +42,15 @@ function SignUpScreen() {
   return (
     <View style={styles.wrapper}>
       <View style={styles.form}>
+        <Text style={{fontFamily:'NotoSansKR-Bold'}}>이메일</Text>
         <BorderedInput 
           value={form.email}
           onChangeText={createChangeTextHandler('email')}/>
+        <Text style={{fontFamily:'NotoSansKR-Bold'}}>비밀번호</Text>
         <BorderedInput 
           value={form.password}
           onChangeText={createChangeTextHandler('password')}/>
+        <Text style={{fontFamily:'NotoSansKR-Bold'}}>비밀번호 확인</Text>
         <BorderedInput 
           value={form.confirmPassword}
           onChangeText={createChangeTextHandler('confirmPassword')}/>
@@ -67,7 +72,7 @@ const styles = StyleSheet.create({
   form:{
     width:'100%',
     marginTop:100,
-    paddingHorizontal:16
+    paddingHorizontal:25
   },
   button:{
     marginTop:34

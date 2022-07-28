@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     input:{
         //borderColor:'black',
         borderBottomWidth:1,
-        height:50,
+        height:40,
         width:350,
         //paddingHorizontal:16,
         //height:48,
