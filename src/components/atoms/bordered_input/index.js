@@ -13,13 +13,15 @@ function BorderedInput({placeholder, value, onChangeText, ...rest}) {
 
 const styles = StyleSheet.create({
     input:{
-        borderColor:'black',
-        borderWidth:1,
-        paddingHorizontal:16,
-        height:48,
-        borderRadius:20,
-        backgroundColor:'white',
-        marginBottom:16
+        //borderColor:'black',
+        borderBottomWidth:1,
+        height:50,
+        width:350,
+        //paddingHorizontal:16,
+        //height:48,
+        //borderRadius:20,
+        //backgroundColor:'white',
+        //marginBottom:16
     }
 });
 

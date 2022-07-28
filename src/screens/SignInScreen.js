@@ -2,11 +2,11 @@ import React, {useState} from 'react';
 import { 
     TouchableOpacity, 
     StyleSheet, 
-    Text, 
     View,
     Keyboard, 
     Alert
 } from 'react-native';
+import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
 import SignForm from '../components/molecules/sign_form';
 import AuthSubmitButton from '../components/atoms/auth_submit_button';
@@ -63,23 +63,21 @@ function SignInScreen() {
 
     return (
         <View style={styles.wrapper}>
-            <View style={styles.header}>
-            </View>
             <View style={styles.form}>
                 <SignForm form={form} createChangeTextHandler={createChangeTextHandler}/>
-                <View style={styles.button}>
+                {/* <View style={styles.button}>
                     <AuthSubmitButton 
                         title="로그인"
                         onSignInSubmit={onSignInSubmit}
                         isSignUp={isSignUp}
                         loading={loading}
                     />
-                </View>
+                </View> */}
             </View>
             <View style={styles.footer}>
-                <SocialAuthButton title="구글로 시작하기" type="google"/>
+                <SocialAuthButton title="구글 아이디로 로그인" type="google"/>
                 <View style={styles.textForm}>
-                    <Text style={{textAlign:'center'}}>아직 계정이 없으세요?</Text>
+                    <Text style={{textAlign:'center'}}>아직 계정이 없으신가요?</Text>
                     <TouchableOpacity
                         onPress={()=> navigation.navigate('SignUpScreen')}>
                         <Text style={styles.text}>회원가입하기</Text>
@@ -98,12 +96,14 @@ const styles = StyleSheet.create({
         height:105,
     },
     form:{
-        marginTop:50,
-        width:'100%',
-        paddingHorizontal:16,
+        marginTop:80,
+        justifyContent:'center',
+        alignSelf:'center',
+        alignContent:'center',
+        paddingHorizontal:26,
     },
     footer:{
-        marginTop:75,
+        marginTop:210,
     },
     button:{
         marginTop:34,

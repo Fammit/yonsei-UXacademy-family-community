@@ -41,15 +41,12 @@ function UploadQuestionScreen() {
 
     return (
         <ScrollView style={styles.wrapper}>
-            <View style={styles.header}>
-                <Text style={styles.text}>질문 올리기</Text>
-                <UploadQuestionButton onQuestionSubmit={onQuestionSubmit}/>
-            </View>
-            <View style={styles.line}></View>
+            {/* <View style={styles.line}></View>
             <QuestionUploadView setQuestion={setQuestion}/>
+                <UploadQuestionButton onQuestionSubmit={onQuestionSubmit}/>
             <View style={styles.footer}>
                 <Text>추천 질문이 필요한가요?</Text>
-            </View>
+            </View> */}
         </ScrollView>
     )
 }

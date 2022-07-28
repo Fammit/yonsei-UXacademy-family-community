@@ -25,11 +25,10 @@ const styles = StyleSheet.create({
         alignItems:'center',
         height:48,
         borderWidth:1,
-        borderRadius:25,
+        borderRadius:20,
         marginHorizontal:15,
         marginVertical:10,
         paddingLeft:30,
-        backgroundColor:'grey',
     },
     wrapper:{
         marginLeft:80,

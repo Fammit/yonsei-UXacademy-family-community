@@ -10,6 +10,7 @@ function UploadModal({visible, onClose}) {
         <Modal
             visible={visible}
             transparent={true}
+            coverScreen={false}
             animationType="fade"
             onRequestClose={onClose}>
                 <TouchableOpacity style={styles.background} onPress={onClose}>

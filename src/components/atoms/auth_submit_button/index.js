@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         height:48,
         borderWidth:1,
-        borderRadius:25,
+        borderRadius:20,
         backgroundColor:'grey'
     },
     spinnerWrapper:{
