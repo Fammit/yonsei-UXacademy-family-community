@@ -23,6 +23,9 @@ function SignInScreen() {
         password: '',
     })
     const {setUser} = useUserContext();
+    
+    //loading
+    const [loading, setLoading] = useState();
 
     //form 객체에서 원하는 키 업데이트
     const createChangeTextHandler = (name) => (value) => {
@@ -35,8 +38,10 @@ function SignInScreen() {
         const {email, password} = form;
         const info = {email, password};
         try{
+            setLoading(true);
             const {user} = await signIn(info);
             const profile = await getUser(user.uid);
+            setLoading(false);
             if(!profile){
                 navigation.navigate('WelcomeScreen', {uid: user.uid})
             }else{
@@ -51,6 +56,8 @@ function SignInScreen() {
             };
             const msg = messages[e.code];
             Alert.alert('로그인 실패', msg);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -64,7 +71,9 @@ function SignInScreen() {
                     <AuthSubmitButton 
                         title="로그인"
                         onSignInSubmit={onSignInSubmit}
-                        isSignUp={isSignUp}/>
+                        isSignUp={isSignUp}
+                        loading={loading}
+                    />
                 </View>
             </View>
             <View style={styles.footer}>
