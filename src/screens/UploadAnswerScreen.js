@@ -1,59 +1,49 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { 
     StyleSheet, 
-    Text, 
-    View,
-    TouchableOpacity, 
-    TextInput 
+    View, 
+    useWindowDimensions, 
+    Image 
 } from 'react-native';
+import {Text} from 'react-native-paper';
 
-import { useUserContext } from '../contexts/UserContext';
 import { useRoute } from '@react-navigation/native';
 
-import { getIsAnswered } from '../lib/answer';
-
-import { createAnswer } from '../lib/answer';
+import QuestionBox from '../components/atoms/question_box';
 
 function UploadAnswerScreen() {
-    const [answer, setAnswer] = useState('');
-    const [isAnswered, setIsAnswered] = useState([]);
-    
-    const {user} = useUserContext();
-    
     const route = useRoute();
-    const questionDocId= route.params.key
-    
-    const onAnswerSubmit = () => {
-        createAnswer({user, isAnswered, answer, questionDocId})
-    }
-    
-    useEffect(() => {
-        const fetchData = async () => {
-            try{
-                const res = await getIsAnswered({questionDocId})
-                setIsAnswered(res);    
-            } catch(error) {
-                console.log(error);
-            }  
-        };
-        fetchData();
-    },[])
+    const {res} = route.params || {};
+    const {data} = route.params || {};
+    const {width} = useWindowDimensions();
 
     return (
-        <View>
-            <TextInput
-                value={answer}
-                onChangeText={setAnswer}
-            />
-            <TouchableOpacity onPress={onAnswerSubmit}>
-                <Text>
-                    완료
-                </Text>
-            </TouchableOpacity>
+        <View style={styles.wrapper}>
+            <QuestionBox data={data}/>
+                <View style={{marginLeft:15}}>
+                    <Text style={{fontFamily:"NotoSansKR-Bold", fontSize:16}}>선택한 사진 🖼️</Text>
+                </View>
+                <View style={styles.block}>
+                    <Image
+                        source={{uri:res.assets[0]?.uri}}
+                        style={[styles.image, {height:width}]}
+                        resizeMode="contain"
+                    />
+                </View>
+
         </View>
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    wrapper:{
+        flex:1,
+        backgroundColor:'white'
+    },
+    block:{
+        backgroundColor:'blue',
+    },
+    image:{width:'100%', marginBottom:0}
+})
 
 export default UploadAnswerScreen;

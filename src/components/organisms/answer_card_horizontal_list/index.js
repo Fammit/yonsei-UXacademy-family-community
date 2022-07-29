@@ -6,7 +6,6 @@ import {
     Animated,
     View 
 } from 'react-native';
-
 import AnswerCard from '../../atoms/answer_card';
 
 function AnswerCardHorizontalList() {

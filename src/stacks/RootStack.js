@@ -11,8 +11,9 @@ import LandingScreen from '../screens/LandingScreen';
 import SignInScreen from '../screens/SignInScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import UploadQuestionScreen from '../screens/UploadQuestionScreen';
-import UploadAnswerScreen from '../screens/UploadAnswerScreen';
+import SelectAnswerTypeScreen from '../screens/SelectAnswerTypeScreen';
 import UploadDailyScreen from '../screens/UploadDailyScreen';
+import UploadAnswerScreen from '../screens/UploadAnswerScreen';
 import NotificationScreen from '../screens/NotificationScreen';
 import FeedScreen from '../screens/FeedScreen';
 import UploadScreen from '../screens/UploadScreen';
@@ -76,7 +77,56 @@ function RootStack (){
                     <Stack.Screen name="UploadDailyScreen" component={UploadDailyScreen} options={{headerShown:false}}/>
                     <Stack.Screen name="UploadScreen" component={UploadScreen} options={{title:'새 게시물', headerBackTitle:'뒤로가기'}}/>
                     <Stack.Screen name="NotificationScreen" component={NotificationScreen}/>
-                    <Stack.Screen name="UploadAnswerScreen" component={UploadAnswerScreen} options={{headerShown:false}}/>
+                    <Stack.Screen 
+                        name="SelectAnswerTypeScreen" 
+                        component={SelectAnswerTypeScreen} 
+                        options={{
+                            headerTransparent:true,
+                            headerBackVisible:false,
+                            headerTitleAlign:'center',
+                            headerLeft: ({onPress}) => (
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
+                                    <Text style={{
+                                        fontSize:17,
+                                        fontFamily:'NotoSansKR-Bold'
+                                    }}>취소</Text>
+                                </TouchableOpacity>
+                            ),
+                            headerTitle:() => (
+                                <View>
+                                    <Text style={{
+                                        fontSize:23,
+                                        fontFamily:'NotoSansKR-Bold'
+                                    }}>질문 답하기</Text>
+                                </View>
+                            ),
+                        }}
+                    />
+                    <Stack.Screen 
+                        name="UploadAnswerScreen" 
+                        component={UploadAnswerScreen} 
+                        options={{
+                            headerTransparent:true,
+                            headerBackVisible:false,
+                            headerTitleAlign:'center',
+                            headerLeft: ({onPress}) => (
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
+                                    <Text style={{
+                                        fontSize:17,
+                                        fontFamily:'NotoSansKR-Bold'
+                                    }}>취소</Text>
+                                </TouchableOpacity>
+                            ),
+                            headerTitle:() => (
+                                <View>
+                                    <Text style={{
+                                        fontSize:23,
+                                        fontFamily:'NotoSansKR-Bold'
+                                    }}>질문 답하기</Text>
+                                </View>
+                            ),
+                        }}
+                    />
                     <Stack.Screen name="FeedScreen" component={FeedScreen} options={{headerShown:false}}/>
 
                 </>

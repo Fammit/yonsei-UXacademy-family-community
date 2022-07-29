@@ -20,7 +20,8 @@ const {height, width} = Dimensions.get('screen');
 
 function QuestionCard({questionId, info, photoURL, question, createdAt}) {
     const navigation = useNavigation();
-
+    const data = {questionId, info, photoURL, question, createdAt};
+    
     return (
         <View style={[styles.card, styles.shadow]}>
             <MemberProfile info={info} photoURL={photoURL}/>
@@ -29,7 +30,7 @@ function QuestionCard({questionId, info, photoURL, question, createdAt}) {
             </View>
             <Text style={styles.time}>{formatDate(new Date(createdAt.seconds*1000))}</Text>
             <AnswerButton
-                onPress={() => navigation.navigate('UploadAnswerScreen', {key: questionId})}
+                onPress={() => navigation.navigate('SelectAnswerTypeScreen', {data})}
             />
         </View>
     )
