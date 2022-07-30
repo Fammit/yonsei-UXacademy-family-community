@@ -8,10 +8,11 @@ export const interactionCollection = firestore().collection('family').doc('famil
     CREATE: 답변 생성을 위한 firestore API
     * check 답변한 사용자의 isAnswered값을 true로 갱신
     * firestore 배열 api를 사용해 갱신
-    @params {object} user: 현재 로그인한 사용자 정보
+    @params {questionId} answer: 질문 고유 식별 번호
     @params {object} isAnswered: 답변 여부 정보
-    @params {object} answer: 답변 내용
-    @params {questionDocId} answer: 질문 고유 식별 번호
+    @params {object} user: 현재 로그인한 사용자 정보
+    @params {object} photoURL: 답변 내용
+    @params {object} description: 답변 내용
 */
 export function createAnswer({questionId, isAnswered, user, photoURL, description }) {
     const answerDocId = uuidv4();
@@ -32,7 +33,12 @@ export function createAnswer({questionId, isAnswered, user, photoURL, descriptio
 }
 
 export async function getAnswer(){
-    
+    const snapshot = await interactionCollection.orderBy('answer','desc').get();
+    const answerArr = snapshot.docs.map((docs) => {
+        return docs.data().answer;
+    })
+    //console.log('FIREBASE DEBGUG=', answerArr.flat());
+    return answerArr.flat();
 }
 
 /** 

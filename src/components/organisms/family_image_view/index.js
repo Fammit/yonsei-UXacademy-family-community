@@ -41,7 +41,7 @@ function FamilyImageView() {
                         <Text style={styles.titleText}>을 확인해보세요🏡</Text>
                     </Text>
                 </View>
-                <View style={styles.image}>
+                <View style={styles.block}>
                     <Image
                         source={require('../../../assets/images/logo.png')}
                     />
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         backgroundColor:'white'
     },
     wrapper:{
-        height:400,
+        height:430,
     },
     textWrapper:{
         position:"absolute",
@@ -83,10 +83,11 @@ const styles = StyleSheet.create({
         fontSize:16,
         fontWeight:'bold'
     },
-    image:{
+    block:{
         marginLeft:20,
         marginTop:20
-    }
+    },
+    
 });
 
 export default FamilyImageView;

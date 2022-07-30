@@ -5,12 +5,14 @@ import {useUserContext} from '../contexts/UserContext';
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-console.log('너비:', width)
-console.log('높이:', height)
 const ITEM_SIZE = width * 0.596;
 const ITEM_GAP = (width - ITEM_SIZE) /2;
-console.log('높이:', ITEM_GAP)
 const ITEM = 10;
+
+console.log('WIDTH:', width)
+console.log('HEIGHT:', height)
+console.log('ITEM_SIZE:', ITEM_SIZE)
+console.log('ITEM_GAAP:', ITEM_GAP)
 
 const ENTRIES = [
     {
@@ -88,7 +90,7 @@ function MyProfileScreen() {
                         outputRange,
                     })
                     return(
-                        <View style={{width: ITEM_SIZE, }}>
+                        <View style={{width: ITEM_SIZE, backgroundColor:'pink' }}>
                             <Animated.View
                                 style={{
                                     marginHorizontal:ITEM,

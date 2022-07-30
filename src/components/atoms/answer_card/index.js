@@ -7,8 +7,11 @@ import {
     View 
 } from 'react-native';
 
-function AnswerCard({answerId, info, answerPhotoURL}) {
+import AnswerMemberCircle from '../answer_member_circle';
+
+function AnswerCard({answerId, photoURL, info, answerPhotoURL}) {
     return (
+        //애니메이션 적용 컴포넌트
         <TouchableOpacity style={styles.wrapper}>
             <Image
                 style={styles.image}
@@ -16,6 +19,7 @@ function AnswerCard({answerId, info, answerPhotoURL}) {
                 resizeMethod='resize'
                 resizeMode='cover'
             />
+                <AnswerMemberCircle info={info} photoURL={photoURL}/>
         </TouchableOpacity>
     )
 }
