@@ -3,13 +3,19 @@ import {
     StyleSheet, 
     Text,
     TouchableOpacity, 
+    Image,
     View 
 } from 'react-native';
 
-function AnswerCard() {
+function AnswerCard({answerId, info, answerPhotoURL}) {
     return (
         <TouchableOpacity style={styles.wrapper}>
-            <Text>index</Text>
+            <Image
+                style={styles.image}
+                source={{uri:answerPhotoURL}}
+                resizeMethod='resize'
+                resizeMode='cover'
+            />
         </TouchableOpacity>
     )
 }
@@ -19,9 +25,14 @@ const styles = StyleSheet.create({
         width:170,
         height:220,
         marginHorizontal:10,
-        borderWidth:1,
         borderRadius:20,
         backgroundColor:'grey'
+    },
+    image:{
+        width:170,
+        height:220,
+        borderRadius:20,
+        height:'100%',
     }
 });
 
