@@ -52,18 +52,6 @@ function MemberInfoScreen() {
 
   const renderItem = ({item, index}, parallaxProps) => {
     return (
-      // <View style={styles.item}>
-      //   <ParallaxImage
-      //     source={{uri: item.illustration}}
-      //     containerStyle={styles.imageContainer}
-      //     style={styles.image}
-      //     parallaxFactor={0.4}
-      //     {...parallaxProps}
-      //   />
-      //   <Text style={styles.title} numberOfLines={2}>
-      //     {item.title}
-      //   </Text>
-      // </View>
       <View style={styles.item}>
         <Text>asdf</Text>
       </View>
@@ -87,6 +75,7 @@ function MemberInfoScreen() {
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -109,4 +98,5 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
 });
+
 export default MemberInfoScreen;

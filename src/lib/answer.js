@@ -1,4 +1,5 @@
 import firestore from '@react-native-firebase/firestore';
+import {v4 as uuidv4} from 'uuid';
 
 export const interactionCollection = firestore().collection('family').doc('family1').collection('interaction');
 
@@ -12,14 +13,18 @@ export const interactionCollection = firestore().collection('family').doc('famil
     @params {object} answer: 답변 내용
     @params {questionDocId} answer: 질문 고유 식별 번호
 */
-export function createAnswer({user, isAnswered, answer, questionDocId}) {
+export function createAnswer({questionId, isAnswered, user, photoURL, description }) {
+    const answerDocId = uuidv4();
     const check = isAnswered.map(item => item.info === user.info ? {...item, isAnswered:true} : item);
 
-    return interactionCollection.doc(questionDocId).set({
+    return interactionCollection.doc(questionId).set({
         answer : firestore.FieldValue.arrayUnion({
+            answerId: answerDocId,
             id: user.id,
             info: user.info,
-            answer: answer,
+            photoURL: user.photoURL,
+            answerPhotoURL: photoURL,
+            description: description,
             createdAt: firestore.Timestamp.now()
         }),
         check

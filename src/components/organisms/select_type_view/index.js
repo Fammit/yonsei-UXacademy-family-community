@@ -18,14 +18,14 @@ const imagePickerOption = {
   includeBase64 : Platform.OS === 'android'
 };
 
-function SelectTypeView({data}) {
+function SelectTypeView({data, isAnswered}) {
     const navigation = useNavigation();
-
+    
     const onPickImage = (res) => {
       if (res.didCancel || !res) {
         return;
       }
-      navigation.push('UploadAnswerScreen', {res, data});
+      navigation.push('UploadAnswerScreen', {res, data, isAnswered});
       console.log(res);
     }
     

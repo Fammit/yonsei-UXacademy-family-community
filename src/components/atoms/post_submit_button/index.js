@@ -14,7 +14,7 @@ function PostSubmitButton({name, color, onPress}) {
                         },
                 ]}
                 onPress={onPress}
-                android_ripple={{color:'#eee'}}>
+                android_ripple={{color:'black'}}>
                     <Icon name={name} color={color} size={24}/>
             </TouchableOpacity>
         </View>
@@ -22,7 +22,7 @@ function PostSubmitButton({name, color, onPress}) {
 }
 
 PostSubmitButton.defaultProps = {
-    color:'#6200ee'
+    color:'black'
 };
 
 const styles = StyleSheet.create({
