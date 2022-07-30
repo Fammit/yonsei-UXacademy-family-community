@@ -50,7 +50,9 @@ function FamilyImageView() {
                     <SettingButton/>
                     <NotificationButton/>
                 </View>
-                <AnswerCardHorizontalList/>
+                <View >
+                    <AnswerCardHorizontalList/>
+                </View>
             </View>
         </>
     );

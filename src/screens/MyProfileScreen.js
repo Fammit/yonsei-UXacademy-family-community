@@ -70,7 +70,7 @@ function MyProfileScreen() {
                 )}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{paddingTop:150, paddingHorizontal:ITEM_GAP}}
+                contentContainerStyle={{paddingTop:230, paddingHorizontal:ITEM_GAP}}
                 decelerationRate={0}
                 snapToInterval={ITEM_SIZE}
                 scrollEventThrottle={ITEM_SIZE}
