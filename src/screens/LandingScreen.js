@@ -49,6 +49,7 @@ function LandingScreen() {
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
+        backgroundColor:'white'
     },
     background:{
         flex:1

@@ -5,7 +5,7 @@ import Animated, {interpolate, Extrapolate, useAnimatedStyle, useSharedValue} fr
 
 const SRC_WIDTH = Dimensions.get('window').width;
 const CARD_LENGTH = SRC_WIDTH * 0.5;
-const SPACING = SRC_WIDTH * 0.08;
+const SPACING = SRC_WIDTH * 0.04;
 console.log('스페이싱',SPACING)
 const SIDECARD_LENGTH = (SRC_WIDTH * 0.18) / 2;
 const ITEM_GAP = (SRC_WIDTH - CARD_LENGTH ) /2;
@@ -83,7 +83,7 @@ function NotificationScreen() {
                 showsHorizontalScrollIndicator={false}
                 snapToInterval={CARD_LENGTH}
                 scrollEventThrottle={16}
-                contentContainerStyle={{paddingTop:150, paddingHorizontal:23}}
+                contentContainerStyle={{paddingTop:150, paddingHorizontal:33}}
 
                 disableIntervalMomentum={true}
                 disableScrollViewPanResponder={true}

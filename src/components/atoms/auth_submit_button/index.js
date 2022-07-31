@@ -14,17 +14,20 @@ function AuthSubmitButton({title, onRegisterSubmit, onSignInSubmit, isSignUp, lo
                 <ActivityIndicator
                     animating={true}
                     size='large'
+                    color='#FCCD72'
                 />
             </View>
         )
     }
     return (
+        <>
             <TouchableOpacity
                 style={styles.wrapper}
                 onPress={isSignUp ? onRegisterSubmit : onSignInSubmit}
                 >
                 <Text style={{fontFamily:"NotoSansKR-Bold"}}>{title}</Text>
             </TouchableOpacity>
+        </>
     )
 }
 
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
         left: 0, 
         right: 0, 
         bottom: 0, 
-        //marginTop:64,
+        //marginTop:94,
         height:104,
         justifyContent:'center',
         alignItems:'center'

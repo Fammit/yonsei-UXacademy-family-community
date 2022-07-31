@@ -33,7 +33,7 @@ function FamilyImageView() {
                 <View style={styles.textWrapper}>
                     <Text>{formatted}</Text>
                     <Text>
-                        <Text style={styles.titleText}>오늘</Text>
+                        <Text style={styles.titleText}>{user.info}님! 오늘</Text>
                         <Text style={[styles.titleText, {color:'#F2AC43'}]}>우리 가족의</Text>
                     </Text>
                     <Text>

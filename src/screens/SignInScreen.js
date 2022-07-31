@@ -18,10 +18,14 @@ import {useUserContext} from '../contexts/UserContext';
 function SignInScreen() {
     const navigation = useNavigation();
     const isSignUp = false;
+
+    //input data --> sign in
     const [form, setForm] = useState({
         email: '',
         password: '',
     })
+
+    //login user information
     const {setUser} = useUserContext();
     
     //loading
@@ -37,8 +41,8 @@ function SignInScreen() {
         Keyboard.dismiss();
         const {email, password} = form;
         const info = {email, password};
+        setLoading(true);
         try{
-            setLoading(true);
             const {user} = await signIn(info);
             const profile = await getUser(user.uid);
             setLoading(false);
@@ -90,6 +94,7 @@ function SignInScreen() {
 const styles = StyleSheet.create({
     wrapper:{
         flex:1,
+        backgroundColor:'white'
     },
     header:{
         height:105,

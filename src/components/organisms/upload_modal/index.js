@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     whitebox:{
-        width:330,
+        width:290,
         height:200,
         alignItems:'center',
         backgroundColor:'white',
@@ -51,10 +51,10 @@ const styles = StyleSheet.create({
     actionButtonDaily:{
         padding:5,
         paddingHorizontal:80,
-        paddingVertical:2,
+        height:50,
         flexDirection:'row',
         alignItems:'center',
-        marginTop:10,
+        marginTop:20,
         marginVertical:5,
         borderRadius:15,
         backgroundColor:'#FFC149'
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     actionButtonQuestion:{
         padding:5,
         paddingHorizontal:80,
+        height:50,
         flexDirection:'row',
         alignItems:'center',
         marginVertical:5,
@@ -70,8 +71,8 @@ const styles = StyleSheet.create({
     },
     text:{
         textAlign:'center',
-        fontSize:22,
-        fontFamily: 'NotoSansKR-Bold'
+        fontSize:16,
+        fontFamily:'NotoSansKR-Bold'
     }
 })
 export default UploadModal;

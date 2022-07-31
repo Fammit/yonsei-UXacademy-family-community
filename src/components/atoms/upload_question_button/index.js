@@ -11,7 +11,7 @@ function UploadQuestionButton({onQuestionSubmit}) {
     return (
         <View style={styles.button}>
             <TouchableOpacity onPress={onQuestionSubmit}>
-                <Icon name="checkcircleo" size={30} />
+                <Icon name="checkcircleo" size={30} color="black" />
             </TouchableOpacity>
         </View>
     )
@@ -19,9 +19,9 @@ function UploadQuestionButton({onQuestionSubmit}) {
 
 const styles = StyleSheet.create({
     button:{
-        position:'absolute',
-        marginTop:3,
-        right:30
+        // position:'absolute',
+        // marginTop:3,
+        // right:30
     }
 })
 

@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import {Text} from 'react-native-paper';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Icon  from 'react-native-vector-icons/Ionicons';
+
 import HomeStack from '../stacks/HomeStack';
 import ChatStack from '../stacks/ChatStack';
 import StorageStack from '../stacks/StorageStack';

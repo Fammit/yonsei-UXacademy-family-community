@@ -43,13 +43,34 @@ export function createQuestion({user, member, question}) {
 */
 export async function getQuestion(id){
     const snapshot = await interactionCollection.where('from.id', '!=', id).get()
-    const temp = snapshot.docs.map((docs) => {
+    const result = snapshot.docs.map((docs) => {
         return docs.data();
-    });
-    const result = temp.filter((items, i) => {
-        return items.check[i].isAnswered != true
     })
     return result;
+}
+
+/**
+    READ: 최근 등록된 질문 조회를 위한 firestore API
+ */
+export async function getNewerQuestion(id){
+    const cursorDoc = await interactionCollection.doc(id).get();
+    const snapshot = await interactionCollection
+    .orderBy('createdAt', 'desc')
+    .endBefore(cursorDoc)
+    .get();
+    console.log('DEBUG:', snapshot);
+    const result = snapshot.docs.filter((docs) => {
+        return docs.data();
+    })
+    console.log('DEBUG:', result);
+    return result;
+}
+
+/**
+    READ: 답변 등록이 완료된 질문 조회를 위한 firestore API
+ */
+export async function getCompleteQuestion(){
+
 }
 
 /** 

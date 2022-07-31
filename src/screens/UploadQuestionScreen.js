@@ -6,7 +6,9 @@ import {
     TouchableOpacity 
 } from 'react-native';
 import {Text, Divider} from 'react-native-paper'
+
 import { useUserContext } from '../contexts/UserContext';
+import { useNavigation } from '@react-navigation/native';
 
 import { createQuestion } from '../lib/question';
 import { getAllUser } from '../lib/users';
@@ -17,9 +19,14 @@ import SystemMessageView from '../components/organisms/system_message_view';
 
 function UploadQuestionScreen() {
     const {user} = useUserContext();
+    const navigation = useNavigation();
+    
+    //등록된 질문
     const [question, setQuestion] = useState('');
+    
     //구성원 전체 정보는 Context API로 전역 상태 관리 필요
     const [member, setMember] = useState([]);
+    
     
     //질문 등록 실행
     const onQuestionSubmit = () => {
@@ -39,6 +46,13 @@ function UploadQuestionScreen() {
         fetchData();
     }, []);
 
+    //등록 버튼 헤더에 위치
+    useEffect(() => {
+        navigation.setOptions({
+            headerRight: () => <UploadQuestionButton onQuestionSubmit={onQuestionSubmit}/>
+        });
+    }, [navigation, onQuestionSubmit])
+
     return (
         <ScrollView style={styles.wrapper}>
             <QuestionUploadView setQuestion={setQuestion}/>
@@ -56,7 +70,8 @@ function UploadQuestionScreen() {
 
 const styles = StyleSheet.create({
     wrapper:{
-        flex:1
+        flex:1,
+        backgroundColor:'white'
     },
     header:{
         alignItems:'center',

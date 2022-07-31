@@ -56,7 +56,7 @@ function RootStack (){
                             headerBackVisible:false,
                             headerTitleAlign:'center',
                             headerLeft: ({onPress}) => (
-                                <TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.goBack()}>
                                     <Image
                                         source={(require('../assets/icons/icon-back.png'))}
                                         style={{width:30}}

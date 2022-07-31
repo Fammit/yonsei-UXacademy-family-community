@@ -41,7 +41,7 @@ const dummyData = [
 
 
 
-// const test = [ 
+// const answer = [ 
 //         [ 
 //             {
 //                 "answerId": "6206a10d-0c78-4900-a7f1-b0a7deb4daab", 
@@ -96,3 +96,41 @@ const dummyData = [
 //             }
 //         ]
 //     ]
+
+
+
+// const question = [
+//     {
+//         "answer": [[Object]], 
+//         "check": [[Object], [Object], [Object], [Object]], 
+//         "createdAt": [Object], 
+//         "from": {
+//             "id": "Omyzu8IzqMaEZDk7fJuc1LcZY2B3", 
+//             "info": "아빠", 
+//             "photoURL": "https://firebasestorage.googleapis.com/v0/b/mvp-mixu.appspot.com/o/profile%2FOmyzu8IzqMaEZDk7fJuc1LcZY2B3.png?alt=media&token=680168cb-f497-4dee-a8f0-ffb313d4ef18"}, 
+//             "question": "지난번에 손목 아프다고 했는데 요즘엔 좀 괜 찮은지?", 
+//             "questionId": "d15930b5-8893-4fb7-83dd-8a3680dec5b2"
+//     }, 
+//     {
+//         "answer": [[Object], [Object]], 
+//         "check": [[Object], [Object], [Object], [Object]], 
+//         "createdAt": [Object], 
+//         "from": {
+//             "id": "P8pvyEjO4wZtnQQ0YJNK4gYaYr33", 
+//             "info": "엄마", 
+//             "photoURL": "https://firebasestorage.googleapis.com/v0/b/mvp-mixu.appspot.com/o/profile%2FP8pvyEjO4wZtnQQ0YJNK4gYaYr33.png?alt=media&token=d4c125c4-3aad-4e90-b533-fbdacdcab8ef"}, 
+//             "question": "가족 여름 휴가는 어디로, 언제쯤 가면 좋을 것 같아?", 
+//             "questionId": "dc8eae6f-9dd5-4208-9b84-e8e640bf1b94"
+//     }, 
+//     {
+//         "answer": [[Object]], 
+//         "check": [[Object], [Object], [Object], [Object]], 
+//         "createdAt": [Object], 
+//         "from": {
+//             "id": "p6mT0V81xUPQ9prllQ0nm1NhIQQ2", 
+//             "info": "현식", 
+//             "photoURL": "https://firebasestorage.googleapis.com/v0/b/mvp-mixu.appspot.com/o/profile%2Fp6mT0V81xUPQ9prllQ0nm1NhIQQ2.png?alt=media&token=06cf7ca9-2e8b-4bae-bd14-5c52e63877cd"}, 
+//             "question": "부모님 결혼기념일 선물은 어떻게 할거야?", 
+//             "questionId": "4c02e100-08ea-42ae-95c9-7e3df8f6cc43"
+//     }
+// ]
