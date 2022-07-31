@@ -32,6 +32,13 @@ export function createAnswer({questionId, isAnswered, user, photoURL, descriptio
     },{merge:true})
 }
 
+/** 
+    READ: 답변 조회를 위한 firestore API
+    * 사용자들의 모든 답변 내용을 가져옴
+    * store에서 가져오는 데이터는 2차원 배열
+    * flat을 사용해 다차원 배열을 1차원 배열로 변환
+    @return 시용자들의 답변이 저장된 배열
+*/
 export async function getAnswer(){
     const snapshot = await interactionCollection.orderBy('answer','desc').get();
     const answerArr = snapshot.docs.map((docs) => {
