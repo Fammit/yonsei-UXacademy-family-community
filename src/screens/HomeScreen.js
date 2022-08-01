@@ -1,22 +1,48 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 import { 
-    StyleSheet,
+    StyleSheet, 
+    View,
     StatusBar,
-    View } 
-from 'react-native';
+    FlatList,
+    RefreshControl 
+} from 'react-native'
 import {Text} from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
+
+import { useUserContext } from '../contexts/UserContext';
 
 import FamilyImageView from '../components/organisms/family_image_view';
-import SystemMsgForm from '../components/atoms/system_message_form';
-import QuestionCardList from '../components/organisms/question_card_list';
+import QuestionCard from '../components/atoms/question_card';
 
 import { getsIsQuestioned } from '../lib/question';
+import { getQuestion } from '../lib/question';
+import { getNewerQuestion } from '../lib/question';
 
-function HomeScreen() {
+const HomeScreen = () => {
+    const {user} = useUserContext();
+    //전체 질문 여부 상태
     const [isQuestioned, setIsQuestioned] = useState();    
+    //질문 내용 상태
+    const [question, setQuestion] = useState([]);
+    const [refreshing, setRefreshing] = useState(false);
 
-    //최초 사용 시 질문 내역 여부 확인 요청
+    //새로고침 실행
+    const onRefresh = async () => {
+
+        if(!question || question.length === 0 || refreshing){
+            return;
+        }
+
+        const firstQuestion = question[0];
+        setRefreshing(true);
+        const newerQuestion = await getNewerQuestion(firstQuestion.questionId);
+        setRefreshing(false);
+        if(newerQuestion.length === 0) {
+            return;
+        }
+        setQuestion(newerQuestion.concat(question));
+    };
+
+     //최초 사용 시 질문 내역 여부 확인 요청
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -28,28 +54,68 @@ function HomeScreen() {
         };
         fetchData();
     },[]);
+
+    //질문 reqeust
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await getQuestion(user.id);
+                setQuestion(res);
+            } catch(error) {
+                console.log(error);
+            }
+        };
+        fetchData();
+    }, []);
     
-    return (
-        <>
-            <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'}/>
-            <ScrollView 
-                style={styles.wrapper}
-            >
-                <FamilyImageView isQuestioned={isQuestioned}/>
-                {!isQuestioned ? (
-                    <View>
-                        <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
-                        <Text>아직 질문이 없습니다.</Text>
+    return (    
+        <FlatList
+            style={{backgroundColor:'white'}}
+            data={question}
+            keyExtractor={item => `${item.questionId}`}
+            refreshControl={
+                <RefreshControl onRefresh={onRefresh} refreshing={refreshing}/>
+            }
+            ListHeaderComponent={
+                <>
+                    <StatusBar backgroundColor={'transparent'} barStyle={'dark-content'}/>
+                    <View style={styles.wrapper}>
+                        <FamilyImageView isQuestioned={isQuestioned}/>
                     </View>
-                ) : (
-                    <View>
-                        <QuestionCardList/>
+                    <View style={{ marginTop:24, borderBottomColor:'#FAF8F4', borderBottomWidth:10}}/>
+                    <View style={{marginLeft:20, marginTop:1, paddingVertical:0}}>
+                        <Text style={{marginHorizontal:4, fontFamily:'NotoSansKR-Bold', fontSize:16}}>나에게 도착한 질문</Text>
                     </View>
-                )}  
-            </ScrollView>
-        </>
-    );   
-};
+
+                </>
+            }
+            renderItem={({item}) => {
+                return(
+                    <>
+                        {!isQuestioned ? (
+                            <View>
+                                <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
+                                <Text>아직 질문이 없습니다.</Text>
+                            </View>
+                        ) : (
+                            <View style={styles.list}>
+                                <QuestionCard 
+                                    key={item.questionId}
+                                    questionId={item.questionId}
+                                    info={item.from.info}
+                                    photoURL={item.from.photoURL}
+                                    question={item.question}
+                                    createdAt={item.createdAt}
+                                />
+                            </View> 
+
+                        )}
+                    </>
+                )
+            }}
+        />
+    )
+}
 
 const styles = StyleSheet.create({
     wrapper:{
@@ -57,9 +123,8 @@ const styles = StyleSheet.create({
         backgroundColor:'white'
     },
     list:{
-        marginTop:15,
         marginHorizontal:15,
     }
-});
+})
 
 export default HomeScreen;

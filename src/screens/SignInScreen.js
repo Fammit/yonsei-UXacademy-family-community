@@ -41,8 +41,8 @@ function SignInScreen() {
         Keyboard.dismiss();
         const {email, password} = form;
         const info = {email, password};
-        setLoading(true);
         try{
+            setLoading(true);
             const {user} = await signIn(info);
             const profile = await getUser(user.uid);
             setLoading(false);
@@ -59,9 +59,8 @@ function SignInScreen() {
             };
             const msg = messages[e.code];
             Alert.alert('로그인 실패', msg);
-        } finally {
             setLoading(false);
-        }
+        } 
     }
 
     return (
