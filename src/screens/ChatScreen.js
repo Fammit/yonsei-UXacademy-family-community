@@ -54,7 +54,7 @@ function ChatScreen() {
 
     return(
         <>
-            {isFamilyCreated ? (
+            {/* {isFamilyCreated ? (
                 <View>
                     <Text>생성 완료</Text>
                 </View>
@@ -67,7 +67,7 @@ function ChatScreen() {
                         <Text>생성</Text>
                     </TouchableOpacity>
                 </View>
-            )}
+            )} */}
         </>
     )
 };

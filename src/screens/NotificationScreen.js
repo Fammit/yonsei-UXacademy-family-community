@@ -78,27 +78,28 @@ function Card({item, index, scrollX}) {
 function NotificationScreen() {
     const [scrollX, setScrollX] = useState(0)
     return (
-            <Animated.FlatList
-                decelerationRate={0.8}
-                showsHorizontalScrollIndicator={false}
-                snapToInterval={CARD_LENGTH}
-                scrollEventThrottle={16}
-                contentContainerStyle={{paddingTop:150, paddingHorizontal:33}}
+        <View></View>
+            // <Animated.FlatList
+            //     decelerationRate={0.8}
+            //     showsHorizontalScrollIndicator={false}
+            //     snapToInterval={CARD_LENGTH}
+            //     scrollEventThrottle={16}
+            //     contentContainerStyle={{paddingTop:150, paddingHorizontal:33}}
 
-                disableIntervalMomentum={true}
-                disableScrollViewPanResponder={true}
-                horizontal
-                onScroll={(event) => {
-                    setScrollX(event.nativeEvent.contentOffset.x);
-                }}
-                data={DATA}
-                keyExtractor={(item) => item.title}
-                renderItem={({item, index}) => {
-                    return(
-                        <Card item={item} index={index} scrollX={scrollX}/>
-                    )
-                }}
-            />
+            //     disableIntervalMomentum={true}
+            //     disableScrollViewPanResponder={true}
+            //     horizontal
+            //     onScroll={(event) => {
+            //         setScrollX(event.nativeEvent.contentOffset.x);
+            //     }}
+            //     data={DATA}
+            //     keyExtractor={(item) => item.title}
+            //     renderItem={({item, index}) => {
+            //         return(
+            //             <Card item={item} index={index} scrollX={scrollX}/>
+            //         )
+            //     }}
+            // />
     )
 }
 

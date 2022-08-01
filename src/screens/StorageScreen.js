@@ -55,7 +55,7 @@ function StorageScreen() {
 
     return (
         <View>
-            <TouchableOpacity onPress={onSelectImage}>
+            {/* <TouchableOpacity onPress={onSelectImage}>
                 <Image
                     style={styles.circle}
                     source={{uri:response?.assets[0].uri}}
@@ -68,7 +68,7 @@ function StorageScreen() {
             </View>
             <View>
                 <Image style={{width:128,height:128}} source={{uri: user.photoURL}}/>
-            </View>
+            </View> */}
         </View>
     );   
 };

@@ -52,23 +52,24 @@ const renderItem = ({item}) => {
 function MemberInfoScreen() {
 
   return (
-    <FlatList
-      data={data}
-      renderItem={renderItem}
-      keyExtractor={item => `${item.id}`}
-      ListHeaderComponent={() =>(
+    <View></View>
+  //   <FlatList
+  //     data={data}
+  //     renderItem={renderItem}
+  //     keyExtractor={item => `${item.id}`}
+  //     ListHeaderComponent={() =>(
         
-        <View style={{
-          borderWidth:2,
-          width:60,
-          height:60,
-          backgroundColor:'grey'
-        }}>
-          <Text>HELLO WORLD</Text>
-        </View>
-  )}
+  //       <View style={{
+  //         borderWidth:2,
+  //         width:60,
+  //         height:60,
+  //         backgroundColor:'grey'
+  //       }}>
+  //         <Text>HELLO WORLD</Text>
+  //       </View>
+  // )}
 
-    />
+  //   />
 
   );
 }
