@@ -14,7 +14,7 @@ import NotificationButton from '../../atoms/notification_button';
 import SettingButton from '../../atoms/setting_button';
 import AnswerCardHorizontalList from '../answer_card_horizontal_list';
 
-function FamilyImageView() {
+function FamilyImageView({isQuestioned}) {
     const {user} = useUserContext();
     
     //statusbar 높이 계산
@@ -50,9 +50,13 @@ function FamilyImageView() {
                     <SettingButton/>
                     <NotificationButton/>
                 </View>
-                <View >
-                    <AnswerCardHorizontalList/>
-                </View>
+                {!isQuestioned ? (
+                    <View><Text>아직 답변이 없습니다</Text></View>
+                ) : (
+                    <View>
+                        <AnswerCardHorizontalList/>
+                    </View>
+                )}
             </View>
         </>
     );

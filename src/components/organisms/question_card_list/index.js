@@ -71,7 +71,7 @@ function QuestionCardList() {
 
     return (
         <View style={styles.wrapper}>
-            <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
+            <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold', fontSize:16}}>나에게 도착한 질문</Text>
             <FlatList
                 data={question}
                 renderItem={renderItem}

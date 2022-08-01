@@ -35,7 +35,7 @@ function HomeScreen() {
             <ScrollView 
                 style={styles.wrapper}
             >
-                <FamilyImageView/>
+                <FamilyImageView isQuestioned={isQuestioned}/>
                 {!isQuestioned ? (
                     <View>
                         <Text style={{marginHorizontal:8, fontFamily:'NotoSansKR-Bold'}}>나에게 도착한 질문❓</Text>
