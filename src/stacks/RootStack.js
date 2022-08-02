@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import { View, TouchableOpacity, Image} from 'react-native';
 import {Text} from 'react-native-paper';
 
+import SplashScreen from 'react-native-splash-screen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
 
@@ -33,6 +34,9 @@ function RootStack (){
         const unsubscribe = subscribeAuth(async currentUser => {
             unsubscribe();
             if(!currentUser){
+                setTimeout(() => {
+                    SplashScreen.hide();
+                }, 2000)
                 return;
             }
             const profile = await getUser(currentUser.uid);

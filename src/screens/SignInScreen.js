@@ -1,19 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     TouchableOpacity, 
     StyleSheet, 
     View,
     Keyboard, 
-    Alert
+    Alert,
 } from 'react-native';
 import {Text} from 'react-native-paper';
+
 import {useNavigation} from '@react-navigation/native';
+import {useUserContext} from '../contexts/UserContext';
+
+import {signIn} from '../lib/auth';
+import {getUser} from '../lib/users';
+
 import SignForm from '../components/molecules/sign_form';
 import AuthSubmitButton from '../components/atoms/auth_submit_button';
 import SocialAuthButton from '../components/atoms/social_auth_button';
-import {signIn} from '../lib/auth';
-import {getUser} from '../lib/users';
-import {useUserContext} from '../contexts/UserContext';
 
 function SignInScreen() {
     const navigation = useNavigation();
@@ -63,18 +66,29 @@ function SignInScreen() {
         } 
     }
 
+    useEffect(() => {
+        navigation.setOptions({
+            headerRight: () => 
+                <AuthSubmitButton 
+                    title="다음"
+                    onSignInSubmit={onSignInSubmit}
+                    isSignUp={isSignUp}
+                    loading={loading}/>
+            });
+    }, [navigation, onSignInSubmit])
+
     return (
         <View style={styles.wrapper}>
             <View style={styles.form}>
                 <SignForm form={form} createChangeTextHandler={createChangeTextHandler}/>
-                <View style={styles.button}>
+                {/* <View style={styles.button}>
                     <AuthSubmitButton 
                         title="로그인"
                         onSignInSubmit={onSignInSubmit}
                         isSignUp={isSignUp}
                         loading={loading}
                     />
-                </View>
+                </View> */}
             </View>
             <View style={styles.footer}>
                 <SocialAuthButton title="구글 아이디로 로그인" type="google" check={true}/>
@@ -118,6 +132,18 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         textAlign:'center', 
         textDecorationLine:'underline'
+    },
+    spinnerWrapper:{
+        flex:1,
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        bottom: 0, 
+        //marginTop:94,
+        height:104,
+        justifyContent:'center',
+        alignItems:'center',
     }
 });
 
