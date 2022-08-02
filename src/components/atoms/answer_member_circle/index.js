@@ -7,7 +7,10 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 
-function AnswerMemberCircle({info, photoURL, cratedAt}) {
+import { formatDate } from '../../../constant/date';
+
+function AnswerMemberCircle({info, photoURL, createdAt}) {
+    console.log(createdAt);
     return (
         <View style={styles.wrapper}>
             <TouchableOpacity 
@@ -19,6 +22,9 @@ function AnswerMemberCircle({info, photoURL, cratedAt}) {
                 style={{marginLeft:5, marginTop:1, fontFamily: 'NotoSansKR-Bold'}}>
                     {info}
             </Text>
+            <Text
+                style={{position:'absolute', bottom:2, right:1 }}
+            >{formatDate(new Date(createdAt.seconds*1000))}</Text>
         </View>
     )
 }

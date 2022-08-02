@@ -2,5 +2,4 @@
 <resources>
     <color name="primary_dark">#FFFFFF</color>
     <color name="status_bar_color">#FFFFFF</color>
-    <color name="myStatusBarColor">#FFFFFF</color>
 </resources>

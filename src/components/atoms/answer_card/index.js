@@ -1,16 +1,18 @@
 import React from 'react';
 import { 
     StyleSheet, 
-    Text,
     TouchableOpacity, 
     Image,
     View,
     Animated, 
 } from 'react-native';
+import {Text} from 'react-native-paper';
 
 import AnswerMemberCircle from '../answer_member_circle';
+
 const ITEM=10;
-function AnswerCard({answerId, photoURL, info, answerPhotoURL, translateY}) {
+
+function AnswerCard({answerId, photoURL, info, answerPhotoURL, translateY, createdAt}) {
     return (
         //애니메이션 적용 컴포넌트
         <TouchableOpacity style={[styles.wrapper, {transform:[{translateY}], marginHorizontal:ITEM} ]}>
@@ -20,7 +22,7 @@ function AnswerCard({answerId, photoURL, info, answerPhotoURL, translateY}) {
                 resizeMethod='resize'
                 resizeMode='cover'
             />
-                <AnswerMemberCircle info={info} photoURL={photoURL}/>
+                <AnswerMemberCircle info={info} photoURL={photoURL} createdAt={createdAt}/>
         </TouchableOpacity>
     )
 }

@@ -44,8 +44,17 @@ export async function getAnswer(){
     const answerArr = snapshot.docs.map((docs) => {
         return docs.data().answer;
     })
-    //console.log('FIREBASE DEBGUG=', answerArr.flat());
-    return answerArr.flat();
+    const result = answerArr.flat();
+    //console.log('FIREBASE DEBGUG=', result);
+    //시간순 정렬 --> js 날짜 라이브러리 사용 --> 최근 날짜부터
+    const temp = result.sort(function(a,b){
+        a = new Date(a.createdAt.seconds*1000)
+        b = new Date(b.createdAt.seconds*1000)
+        return a>b ? -1 : a<b ? 1 : 0  
+    }) 
+    //console.log('HOLAA=', temp);
+    return temp;
+    //return answerArr.flat();
 }
 
 /** 

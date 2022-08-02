@@ -7,12 +7,9 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 
-import { format } from 'date-fns';
 import {useNavigation} from '@react-navigation/native';
 
 import { formatDate } from '../../../constant/date';
-import { useUserContext } from '../contexts/UserContext';
-
 import MemberProfile from '../member_profile';
 import AnswerButton from '../answer_button';
 

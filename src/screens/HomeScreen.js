@@ -9,6 +9,7 @@ import {
 import {Text} from 'react-native-paper';
 
 import { useUserContext } from '../contexts/UserContext';
+import SplashScreen from 'react-native-splash-screen';
 
 import FamilyImageView from '../components/organisms/family_image_view';
 import QuestionCard from '../components/atoms/question_card';
@@ -24,6 +25,8 @@ const HomeScreen = () => {
     //질문 내용 상태
     const [question, setQuestion] = useState([]);
     const [refreshing, setRefreshing] = useState(false);
+    //로그인했을 경우 HOMESCREEN 렌더
+    const questionReady = question != null;
 
     //새로고침 실행
     const onRefresh = async () => {
@@ -42,6 +45,11 @@ const HomeScreen = () => {
         setQuestion(newerQuestion.concat(question));
     };
 
+    useEffect(() => {
+        if(questionReady){
+            SplashScreen.hide();
+        }
+    }, [questionReady])
      //최초 사용 시 질문 내역 여부 확인 요청
     useEffect(() => {
         const fetchData = async () => {

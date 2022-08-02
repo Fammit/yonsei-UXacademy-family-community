@@ -30,6 +30,7 @@ function UploadQuestionScreen() {
     
     //질문 등록 실행
     const onQuestionSubmit = () => {
+        navigation.pop();
         createQuestion({user, member, question})
     }
 

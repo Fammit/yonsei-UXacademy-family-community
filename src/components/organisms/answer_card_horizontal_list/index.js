@@ -96,6 +96,7 @@ function AnswerCardHorizontalList() {
                             info={item.info}
                             answerPhotoURL={item.answerPhotoURL}
                             translateY={translateY}
+                            createdAt={item.createdAt}
                         />
                     </View> 
                 )

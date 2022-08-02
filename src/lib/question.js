@@ -42,9 +42,11 @@ export function createQuestion({user, member, question}) {
     @return 데이터베이스에서 조건에 부합하는 질문 리스트
 */
 export async function getQuestion(id){
-    const snapshot = await interactionCollection.where('from.id', '!=', id).get()
-    const result = snapshot.docs.map((docs) => {
-        return docs.data();
+    const snapshot = await interactionCollection.orderBy('createdAt', 'desc').get()
+    const result = snapshot.docs.filter((item) => {
+        return item.data().from.id != id 
+    }).map((item) => {
+        return item.data();
     })
     return result;
 }
